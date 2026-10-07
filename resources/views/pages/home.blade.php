@@ -34,55 +34,12 @@
              x-data="{
                  activeSlide: 0,
                  totalSlides: 3,
-                 autoplayInterval: null,
-                 slides: [
-                     {
-                         title: 'Your Journey.<br><span class=\"italic font-light text-sand-200\">Our Finest Vehicles.</span>',
-                         subtitle: 'Premium cars, tempo travellers and buses for local, outstation and group travel.',
-                         image: '{{ asset('images/banners/banner-1-jaipur.jpg') }}',
-                         tag: 'SUJATA TOURS • CHAUFFEUR FLEET',
-                         cta1: 'Book a Vehicle',
-                         cta1Action: 'openBooking',
-                         cta2: 'Explore Vehicles',
-                         cta2Link: '{{ route('vehicles.index') }}'
-                     },
-                     {
-                         title: 'Go Further.<br><span class=\"italic font-light text-sand-200\">Travel Comfortably.</span>',
-                         subtitle: 'Chauffeur-driven highway fleets across Rajasthan, Delhi NCR, Agra and North India.',
-                         image: '{{ asset('images/banners/banner-2-highway.jpg') }}',
-                         tag: 'LONG DISTANCE & OUTSTATION CORRIDORS',
-                         cta1: 'Explore Vehicles',
-                         cta1Action: 'link',
-                         cta1Link: '{{ route('vehicles.index') }}',
-                         cta2: 'View Popular Routes',
-                         cta2Link: '{{ url('/outstation-cab-jaipur') }}'
-                     },
-                     {
-                         title: 'Travel Together.<br><span class=\"italic font-light text-sand-200\">Travel Better.</span>',
-                         subtitle: 'Punctual airport arrivals, executive sedans, and luxury tourist coaches for delegations.',
-                         image: '{{ asset('images/banners/banner-3-airport.jpg') }}',
-                         tag: 'LUXURY COACHES & AIRPORT TRANSFERS',
-                         cta1: 'Book a Vehicle',
-                         cta1Action: 'openBooking',
-                         cta2: 'View Coaches',
-                         cta2Link: '{{ route('vehicles.buses') }}'
-                     }
-                 ],
-                 next() {
-                     this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
-                 },
-                 prev() {
-                     this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
-                 },
-                 goTo(i) {
-                     this.activeSlide = i;
-                 },
-                 startAutoplay() {
-                     this.autoplayInterval = setInterval(() => { this.next(); }, 6500);
-                 },
-                 stopAutoplay() {
-                     if (this.autoplayInterval) clearInterval(this.autoplayInterval);
-                 }
+                 autoplayTimer: null,
+                 next() { this.activeSlide = (this.activeSlide + 1) % this.totalSlides; },
+                 prev() { this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides; },
+                 goTo(i) { this.activeSlide = i; },
+                 startAutoplay() { this.autoplayTimer = setInterval(() => { this.next(); }, 6500); },
+                 stopAutoplay() { if (this.autoplayTimer) clearInterval(this.autoplayTimer); }
              }"
              x-init="startAutoplay()"
              @mouseenter="stopAutoplay()"
@@ -90,105 +47,190 @@
 
         <!-- Slider Images & Backdrop -->
         <div class="relative h-[85vh] sm:h-[88vh] lg:h-[90vh] min-h-[580px] w-full">
-            <template x-for="(slide, index) in slides" :key="index">
-                <div x-show="activeSlide === index"
-                     x-transition:enter="transition ease-out duration-1000"
-                     x-transition:enter-start="opacity-0 scale-105"
-                     x-transition:enter-end="opacity-100 scale-100"
-                     x-transition:leave="transition ease-in duration-700"
-                     x-transition:leave-start="opacity-100 scale-100"
-                     x-transition:leave-end="opacity-0 scale-95"
-                     class="absolute inset-0 w-full h-full">
-                    
-                    <!-- Background Image with Cinematic Crop -->
-                    <img :src="slide.image" 
-                         :alt="slide.tag"
-                         class="w-full h-full object-cover object-center transform transition-transform duration-[8000ms] ease-out scale-105"
-                         :class="activeSlide === index ? 'scale-100' : 'scale-105'">
-                    
-                    <!-- Subtle Dark Gradient Vignette for Readability -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/45 to-charcoal-dark/25"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
-                </div>
-            </template>
 
-            <!-- Hero Slide Content Overlay -->
-            <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-                <div class="max-w-3xl pt-16 sm:pt-20">
-                    
-                    <!-- Eyebrow Badge -->
-                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                        <span x-text="slides[activeSlide].tag"></span>
-                    </div>
+            <!-- SLIDE 1: Jaipur Heritage & Chauffeur Fleet -->
+            <div x-show="activeSlide === 0"
+                 x-transition:enter="transition ease-out duration-1000"
+                 x-transition:enter-start="opacity-0 scale-105"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-700"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="absolute inset-0 w-full h-full">
+                
+                <img src="{{ asset('images/banners/banner-1-jaipur.jpg') }}" 
+                     alt="Sujata Tours Jaipur Fleet" 
+                     class="w-full h-full object-cover object-center">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
 
-                    <!-- Main Cinematic Heading -->
-                    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6"
-                        x-html="slides[activeSlide].title">
-                    </h1>
+                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+                    <div class="max-w-3xl pt-16 sm:pt-20">
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            <span>SUJATA TOURS • CHAUFFEUR FLEET</span>
+                        </div>
 
-                    <!-- Supporting Text -->
-                    <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8"
-                       x-text="slides[activeSlide].subtitle">
-                    </p>
+                        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
+                            Your Journey.<br>
+                            <span class="italic font-light text-sand-200">Our Finest Vehicles.</span>
+                        </h1>
 
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap items-center gap-4">
-                        <template x-if="slides[activeSlide].cta1Action === 'openBooking'">
+                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
+                            Premium cars, tempo travellers and buses for local, outstation and group travel across Rajasthan.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4">
                             <a href="#quick-booking" 
                                class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
-                                <span x-text="slides[activeSlide].cta1"></span>
+                                Book a Vehicle
                             </a>
-                        </template>
-                        <template x-if="slides[activeSlide].cta1Action === 'link'">
-                            <a :href="slides[activeSlide].cta1Link" 
+                            <a href="{{ route('vehicles.index') }}" 
+                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                                <span>Explore Vehicles</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Highway & Expressway Corridors -->
+            <div x-show="activeSlide === 1"
+                 x-cloak
+                 x-transition:enter="transition ease-out duration-1000"
+                 x-transition:enter-start="opacity-0 scale-105"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-700"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="absolute inset-0 w-full h-full">
+                
+                <img src="{{ asset('images/banners/banner-2-highway.jpg') }}" 
+                     alt="Highway and Expressway Travel" 
+                     class="w-full h-full object-cover object-center">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
+
+                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+                    <div class="max-w-3xl pt-16 sm:pt-20">
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            <span>HIGHWAY & EXPRESSWAY CORRIDORS</span>
+                        </div>
+
+                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
+                            Go Further.<br>
+                            <span class="italic font-light text-sand-200">Travel Comfortably.</span>
+                        </h2>
+
+                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
+                            Chauffeur-driven highway fleets across the Delhi-Mumbai Expressway, Agra, and North India.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="{{ route('vehicles.index') }}" 
                                class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
-                                <span x-text="slides[activeSlide].cta1"></span>
+                                Explore Vehicles
                             </a>
-                        </template>
-
-                        <a :href="slides[activeSlide].cta2Link" 
-                           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
-                            <span x-text="slides[activeSlide].cta2"></span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
+                            <a href="{{ url('/outstation-cab-jaipur') }}" 
+                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                                <span>View Routes</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Slider Navigation Controls & Numbering -->
-            <div class="absolute bottom-16 sm:bottom-20 right-4 sm:right-8 lg:right-12 z-30 flex items-center gap-6">
-                <!-- Slide Number Display -->
-                <div class="text-sand-300 font-serif text-sm tracking-widest flex items-center gap-1.5">
-                    <span class="text-white text-base font-bold" x-text="'0' + (activeSlide + 1)"></span>
-                    <span class="text-sand-400/50">/</span>
-                    <span class="text-sand-400 text-xs" x-text="'0' + totalSlides"></span>
-                </div>
+            <!-- SLIDE 3: Airport Transfers & Coaches -->
+            <div x-show="activeSlide === 2"
+                 x-cloak
+                 x-transition:enter="transition ease-out duration-1000"
+                 x-transition:enter-start="opacity-0 scale-105"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-700"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="absolute inset-0 w-full h-full">
+                
+                <img src="{{ asset('images/banners/banner-3-airport.jpg') }}" 
+                     alt="Airport Pickups and Tourist Coach Buses" 
+                     class="w-full h-full object-cover object-center">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
 
-                <!-- Navigation Arrow Buttons -->
-                <div class="flex items-center gap-2">
-                    <button @click="prev()" 
-                            class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
-                            aria-label="Previous Slide">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button @click="next()" 
-                            class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
-                            aria-label="Next Slide">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </button>
+                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+                    <div class="max-w-3xl pt-16 sm:pt-20">
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            <span>LUXURY COACHES & AIRPORT TRANSFERS</span>
+                        </div>
+
+                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
+                            Travel Together.<br>
+                            <span class="italic font-light text-sand-200">Travel Better.</span>
+                        </h2>
+
+                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
+                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for delegations.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="#quick-booking" 
+                               class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
+                                Book a Vehicle
+                            </a>
+                            <a href="{{ route('vehicles.buses') }}" 
+                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                                <span>View Coaches</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Progress Indicator Bar -->
-            <div class="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/10 flex">
-                <template x-for="i in totalSlides" :key="i">
-                    <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
-                         @click="goTo(i - 1)"
-                         :class="(activeSlide === i - 1) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
-                    </div>
-                </template>
+        </div>
+
+        <!-- Slider Navigation Controls & Numbering -->
+        <div class="absolute bottom-16 sm:bottom-20 right-4 sm:right-8 lg:right-12 z-30 flex items-center gap-6">
+            <div class="text-sand-300 font-serif text-sm tracking-widest flex items-center gap-1.5">
+                <span class="text-white text-base font-bold" x-text="'0' + (activeSlide + 1)"></span>
+                <span class="text-sand-400/50">/</span>
+                <span class="text-sand-400 text-xs">03</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button @click="prev()" 
+                        class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
+                        aria-label="Previous Slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button @click="next()" 
+                        class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
+                        aria-label="Next Slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Indicator Bar -->
+        <div class="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/10 flex">
+            <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
+                 @click="goTo(0)"
+                 :class="(activeSlide === 0) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
+            </div>
+            <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
+                 @click="goTo(1)"
+                 :class="(activeSlide === 1) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
+            </div>
+            <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
+                 @click="goTo(2)"
+                 :class="(activeSlide === 2) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
             </div>
         </div>
 
