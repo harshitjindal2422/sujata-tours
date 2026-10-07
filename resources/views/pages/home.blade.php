@@ -33,14 +33,14 @@
     <section class="relative bg-charcoal-dark overflow-hidden" 
              x-data="{
                  activeSlide: 0,
-                 totalSlides: 4,
+                 totalSlides: 3,
                  autoplayInterval: null,
                  slides: [
                      {
                          title: 'Your Journey.<br><span class=\"italic font-light text-sand-200\">Our Finest Vehicles.</span>',
                          subtitle: 'Premium cars, tempo travellers and buses for local, outstation and group travel.',
-                         image: '{{ asset('images/fleet/jaipur-pink-city-hero.jpg') }}',
-                         tag: 'SUJATA TOURS • FLEET & CHAUFFEUR',
+                         image: '{{ asset('images/banners/banner-1-jaipur.jpg') }}',
+                         tag: 'SUJATA TOURS • CHAUFFEUR FLEET',
                          cta1: 'Book a Vehicle',
                          cta1Action: 'openBooking',
                          cta2: 'Explore Vehicles',
@@ -49,7 +49,7 @@
                      {
                          title: 'Go Further.<br><span class=\"italic font-light text-sand-200\">Travel Comfortably.</span>',
                          subtitle: 'Chauffeur-driven highway fleets across Rajasthan, Delhi NCR, Agra and North India.',
-                         image: '{{ asset('images/fleet/intercity-highway-hero.jpg') }}',
+                         image: '{{ asset('images/banners/banner-2-highway.jpg') }}',
                          tag: 'LONG DISTANCE & OUTSTATION CORRIDORS',
                          cta1: 'Explore Vehicles',
                          cta1Action: 'link',
@@ -59,23 +59,13 @@
                      },
                      {
                          title: 'Travel Together.<br><span class=\"italic font-light text-sand-200\">Travel Better.</span>',
-                         subtitle: 'Spacious 12 to 26-seater luxury tempo travellers engineered for group comfort.',
-                         image: '{{ asset('images/fleet/tempo-traveller-luxury.jpg') }}',
-                         tag: 'LUXURY GROUP MOBILITY',
+                         subtitle: 'Punctual airport arrivals, executive sedans, and luxury tourist coaches for delegations.',
+                         image: '{{ asset('images/banners/banner-3-airport.jpg') }}',
+                         tag: 'LUXURY COACHES & AIRPORT TRANSFERS',
                          cta1: 'Book a Vehicle',
                          cta1Action: 'openBooking',
-                         cta2: 'View Tempo Travellers',
-                         cta2Link: '{{ route('vehicles.tempo-travellers') }}'
-                     },
-                     {
-                         title: 'Reliable Travel,<br><span class=\"italic font-light text-sand-200\">Wherever You Go.</span>',
-                         subtitle: 'Punctual airport transfers, local city rentals, and executive business transit.',
-                         image: '{{ asset('images/fleet/toyota-innova-crysta.jpg') }}',
-                         tag: 'CHAUFFEUR SERVICE & AIRPORT TRANSFERS',
-                         cta1: 'Get a Quote',
-                         cta1Action: 'openBooking',
-                         cta2: 'Explore Cars',
-                         cta2Link: '{{ route('vehicles.cars') }}'
+                         cta2: 'View Coaches',
+                         cta2Link: '{{ route('vehicles.buses') }}'
                      }
                  ],
                  next() {
@@ -652,9 +642,11 @@
                         <!-- Vehicle Image -->
                         <div>
                             <div class="relative aspect-[16/10] overflow-hidden bg-sand-200">
-                                <img src="{{ asset($vehicle->image_url) }}" 
+                                <img src="{{ $vehicle->image_url }}" 
                                      alt="{{ $vehicle->name }}" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover"
+                                     loading="lazy"
+                                     onerror="this.onerror=null;this.src='{{ asset('images/fleet/toyota-innova-crysta.jpg') }}';">
                                 <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold uppercase text-charcoal">
                                     {{ $vehicle->category ? $vehicle->category->name : 'Vehicle' }}
                                 </div>

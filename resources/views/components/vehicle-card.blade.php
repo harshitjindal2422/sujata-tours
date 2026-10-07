@@ -2,11 +2,11 @@
 
 <div class="bg-white rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col group">
     <!-- Vehicle Image Container -->
-    <div class="relative aspect-[16/10] bg-surface-subtle overflow-hidden">
-        <img src="{{ $vehicle->image ?: asset('images/fleet/toyota-innova-crysta.jpg') }}" 
+        <img src="{{ $vehicle->image_url }}" 
              alt="{{ $vehicle->name }} rental in Jaipur" 
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-             loading="lazy">
+             loading="lazy"
+             onerror="this.onerror=null;this.src='{{ asset('images/fleet/toyota-innova-crysta.jpg') }}';">
         
         <!-- Category Badge -->
         <div class="absolute top-3 left-3">

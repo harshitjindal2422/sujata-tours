@@ -55,10 +55,10 @@
                 
                 <!-- Main Vehicle Photo -->
                 <div class="bg-white rounded-2xl border border-border overflow-hidden shadow-card">
-                    <div class="relative aspect-[16/10] bg-surface-subtle">
-                        <img src="{{ $vehicle->image ?: asset('images/fleet/toyota-innova-crysta.jpg') }}" 
+                        <img src="{{ $vehicle->image_url }}" 
                              alt="{{ $vehicle->name }} in Jaipur" 
-                             class="w-full h-full object-cover">
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null;this.src='{{ asset('images/fleet/toyota-innova-crysta.jpg') }}';">
                         
                         <div class="absolute top-4 left-4 flex gap-2">
                             <span class="px-3 py-1 rounded-md text-xs font-bold bg-navy-900 text-white shadow-sm">

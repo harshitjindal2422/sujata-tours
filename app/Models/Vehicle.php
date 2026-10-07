@@ -79,4 +79,15 @@ class Vehicle extends Model
         }
         return 'Custom Quote';
     }
+
+    public function getImageUrlAttribute()
+    {
+        if (!empty($this->image)) {
+            if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+                return $this->image;
+            }
+            return asset(ltrim($this->image, '/'));
+        }
+        return asset('images/fleet/toyota-innova-crysta.jpg');
+    }
 }
