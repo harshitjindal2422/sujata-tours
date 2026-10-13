@@ -28,68 +28,104 @@
 @section('content')
 
     <!-- =========================================================================
-         1. CINEMATIC FULL-WIDTH HERO SLIDER
+         1. CINEMATIC FULL-WIDTH HERO SLIDER (Bright, Auto-sliding, Height-optimized)
          ========================================================================= -->
-    <section class="relative bg-charcoal-dark overflow-hidden" 
+    <section class="relative bg-charcoal-dark overflow-hidden w-full select-none h-[400px] sm:h-[430px] lg:h-[450px]" 
+             style="min-height: 400px; height: 440px;"
              x-data="{
                  activeSlide: 0,
                  totalSlides: 3,
-                 autoplayTimer: null,
-                 next() { this.activeSlide = (this.activeSlide + 1) % this.totalSlides; },
-                 prev() { this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides; },
-                 goTo(i) { this.activeSlide = i; },
-                 startAutoplay() { this.autoplayTimer = setInterval(() => { this.next(); }, 6500); },
-                 stopAutoplay() { if (this.autoplayTimer) clearInterval(this.autoplayTimer); }
-             }"
-             x-init="startAutoplay()"
-             @mouseenter="stopAutoplay()"
-             @mouseleave="startAutoplay()">
+                 timer: null,
+                 init() {
+                     this.startAutoplay();
+                 },
+                 startAutoplay() {
+                     if (this.timer) clearInterval(this.timer);
+                     this.timer = setInterval(() => {
+                         this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+                     }, 5000);
+                 },
+                 goTo(i) {
+                     this.activeSlide = i;
+                     this.startAutoplay();
+                 },
+                 next() {
+                     this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+                     this.startAutoplay();
+                 },
+                 prev() {
+                     this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
+                     this.startAutoplay();
+                 }
+             }">
 
         <!-- Slider Images & Backdrop -->
-        <div class="relative h-[85vh] sm:h-[88vh] lg:h-[90vh] min-h-[580px] w-full">
+        <div class="relative w-full h-full overflow-hidden">
 
             <!-- SLIDE 1: Jaipur Heritage & Chauffeur Fleet -->
             <div x-show="activeSlide === 0"
-                 x-transition:enter="transition ease-out duration-1000"
-                 x-transition:enter-start="opacity-0 scale-105"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-700"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
+                 x-transition:enter="transition-opacity ease-out duration-700"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition-opacity ease-in duration-500"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
                 
                 <img src="{{ asset('images/banners/banner-1-jaipur.jpg') }}" 
                      alt="Sujata Tours Jaipur Fleet" 
-                     class="w-full h-full object-cover object-center">
+                     class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
+                <!-- Radiant semi-transparent overlay: dark on left for text readability, clear & bright on right for vehicle view -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 
-                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-                    <div class="max-w-3xl pt-16 sm:pt-20">
-                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
-                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                            <span>SUJATA TOURS • CHAUFFEUR FLEET</span>
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                    <div class="max-w-2xl">
+                        <!-- Bright Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>★ 4.9/5 RATED • SUJATA TOURS JAIPUR FLEET</span>
                         </div>
 
-                        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
+                        <!-- Striking Bright Headline -->
+                        <h1 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
                             Your Journey.<br>
-                            <span class="italic font-light text-sand-200">Our Finest Vehicles.</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Our Finest Vehicles.</span>
                         </h1>
 
-                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
-                            Premium cars, tempo travellers and buses for local, outstation and group travel across Rajasthan.
+                        <!-- Bright Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
+                            Premium chauffeur-driven cars, tempo travellers and tourist coaches for local city travel, outstation road trips and group tours across Rajasthan.
                         </p>
 
-                        <div class="flex flex-wrap items-center gap-4">
+                        <!-- Key Feature Highlights Strip -->
+                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Uniformed Chauffeur
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Clean AC Vehicles
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Transparent Rates
+                            </span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-3">
                             <a href="#quick-booking" 
-                               class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
-                                Book a Vehicle
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                                <span>Book a Vehicle</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </a>
                             <a href="{{ route('vehicles.index') }}" 
-                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
                                 <span>Explore Vehicles</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
                     </div>
@@ -98,47 +134,67 @@
 
             <!-- SLIDE 2: Highway & Expressway Corridors -->
             <div x-show="activeSlide === 1"
-                 x-cloak
-                 x-transition:enter="transition ease-out duration-1000"
-                 x-transition:enter-start="opacity-0 scale-105"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-700"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
+                 x-transition:enter="transition-opacity ease-out duration-700"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition-opacity ease-in duration-500"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
                 
                 <img src="{{ asset('images/banners/banner-2-highway.jpg') }}" 
                      alt="Highway and Expressway Travel" 
-                     class="w-full h-full object-cover object-center">
+                     class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 
-                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-                    <div class="max-w-3xl pt-16 sm:pt-20">
-                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
-                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                            <span>HIGHWAY & EXPRESSWAY CORRIDORS</span>
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                    <div class="max-w-2xl">
+                        <!-- Bright Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>DELHI-MUMBAI EXPRESSWAY & OUTSTATION</span>
                         </div>
 
-                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
-                            Go Further.<br>
-                            <span class="italic font-light text-sand-200">Travel Comfortably.</span>
+                        <!-- Striking Bright Headline -->
+                        <h2 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
+                            Go Outstation.<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Travel in Comfort.</span>
                         </h2>
 
-                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
-                            Chauffeur-driven highway fleets across the Delhi-Mumbai Expressway, Agra, and North India.
+                        <!-- Bright Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
+                            Chauffeur-driven highway fleets across the Delhi-Mumbai Expressway, Agra, Jodhpur, Udaipur, and all North India routes.
                         </p>
 
-                        <div class="flex flex-wrap items-center gap-4">
+                        <!-- Key Feature Highlights Strip -->
+                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Highway Specialists
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                24x7 Control Room
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Fastag Inclusions
+                            </span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-3">
                             <a href="{{ route('vehicles.index') }}" 
-                               class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
-                                Explore Vehicles
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                                <span>Explore Vehicles</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                             <a href="{{ url('/outstation-cab-jaipur') }}" 
-                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
                                 <span>View Routes</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             </a>
                         </div>
                     </div>
@@ -147,47 +203,67 @@
 
             <!-- SLIDE 3: Airport Transfers & Coaches -->
             <div x-show="activeSlide === 2"
-                 x-cloak
-                 x-transition:enter="transition ease-out duration-1000"
-                 x-transition:enter-start="opacity-0 scale-105"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-700"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
+                 x-transition:enter="transition-opacity ease-out duration-700"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition-opacity ease-in duration-500"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
                 
                 <img src="{{ asset('images/banners/banner-3-airport.jpg') }}" 
                      alt="Airport Pickups and Tourist Coach Buses" 
-                     class="w-full h-full object-cover object-center">
+                     class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-charcoal-dark/50 to-charcoal-dark/25"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-charcoal-dark/80 via-charcoal-dark/30 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 
-                <div class="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-                    <div class="max-w-3xl pt-16 sm:pt-20">
-                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-200 text-xs tracking-widest font-semibold uppercase mb-6">
-                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                            <span>LUXURY COACHES & AIRPORT TRANSFERS</span>
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                    <div class="max-w-2xl">
+                        <!-- Bright Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>AIRPORT ARRIVALS & LUXURY COACHES</span>
                         </div>
 
-                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-6">
+                        <!-- Striking Bright Headline -->
+                        <h2 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
                             Travel Together.<br>
-                            <span class="italic font-light text-sand-200">Travel Better.</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Travel in Luxury.</span>
                         </h2>
 
-                        <p class="text-base sm:text-lg lg:text-xl text-sand-200/90 font-light leading-relaxed max-w-2xl mb-8">
-                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for delegations.
+                        <!-- Bright Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
+                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for families, destination weddings, and corporate delegations.
                         </p>
 
-                        <div class="flex flex-wrap items-center gap-4">
+                        <!-- Key Feature Highlights Strip -->
+                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Flight Tracking Pickup
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Large Luggage Boots
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                12 to 55 Seater Range
+                            </span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-3">
                             <a href="#quick-booking" 
-                               class="btn-primary text-xs sm:text-sm uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-float">
-                                Book a Vehicle
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                                <span>Book a Vehicle</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </a>
                             <a href="{{ route('vehicles.buses') }}" 
-                               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all">
+                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
                                 <span>View Coaches</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
                     </div>
@@ -197,50 +273,50 @@
         </div>
 
         <!-- Slider Navigation Controls & Numbering -->
-        <div class="absolute bottom-16 sm:bottom-20 right-4 sm:right-8 lg:right-12 z-30 flex items-center gap-6">
-            <div class="text-sand-300 font-serif text-sm tracking-widest flex items-center gap-1.5">
-                <span class="text-white text-base font-bold" x-text="'0' + (activeSlide + 1)"></span>
-                <span class="text-sand-400/50">/</span>
-                <span class="text-sand-400 text-xs">03</span>
+        <div class="absolute bottom-16 sm:bottom-18 right-4 sm:right-8 lg:right-12 z-30 flex items-center gap-4">
+            <div class="text-sand-200 font-serif text-xs tracking-widest flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow">
+                <span class="text-amber-300 text-xs font-black" x-text="'0' + (activeSlide + 1)"></span>
+                <span class="text-white/40">/</span>
+                <span class="text-white/70 text-xs">03</span>
             </div>
 
             <div class="flex items-center gap-2">
                 <button @click="prev()" 
-                        class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
+                        class="w-9 h-9 rounded-full border border-white/40 bg-black/60 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
                         aria-label="Previous Slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                 </button>
                 <button @click="next()" 
-                        class="w-10 h-10 rounded-full border border-white/25 bg-black/30 hover:bg-white hover:text-charcoal text-white flex items-center justify-center transition-all focus:outline-none"
+                        class="w-9 h-9 rounded-full border border-white/40 bg-black/60 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
                         aria-label="Next Slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Progress Indicator Bar -->
-        <div class="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/10 flex">
+        <!-- Interactive Slide Indicator Dots & Progress Bar -->
+        <div class="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/20 flex">
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(0)"
-                 :class="(activeSlide === 0) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
+                 :class="(activeSlide === 0) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
             </div>
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(1)"
-                 :class="(activeSlide === 1) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
+                 :class="(activeSlide === 1) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
             </div>
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(2)"
-                 :class="(activeSlide === 2) ? 'bg-primary' : 'bg-transparent hover:bg-white/20'">
+                 :class="(activeSlide === 2) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
             </div>
         </div>
 
     </section>
 
     <!-- =========================================================================
-         2. FLOATING QUICK BOOKING / AVAILABILITY BAR (Overlaps bottom of Hero)
+         2. FLOATING QUICK BOOKING / AVAILABILITY BAR (Clearly visible above the fold)
          ========================================================================= -->
     <section id="quick-booking" 
-             class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-14"
+             class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 lg:-mt-16"
              x-data="{
                  pickup: 'Jaipur',
                  drop: '',
@@ -250,7 +326,19 @@
                  modalOpen: false
              }">
         
-        <div class="bg-white rounded-2xl shadow-float border border-border p-5 sm:p-7 backdrop-blur-md">
+        <div class="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] border-2 border-white/90 p-5 sm:p-7 backdrop-blur-md">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-border">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal tracking-tight">
+                        Check Vehicle Availability & Fare Quote
+                    </h3>
+                </div>
+                <span class="text-[11px] font-bold text-primary uppercase tracking-wider">
+                    ⚡ Instant 10-Minute Allotment
+                </span>
+            </div>
             
             <form @submit.prevent="modalOpen = true" class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 items-end">
