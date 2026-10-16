@@ -98,123 +98,63 @@
         </div>
     </div>
 
-    <!-- Main Navigation Header (Sticky & Overlay on Home) -->
-    <header class="sticky top-0 z-50 transition-all duration-300 {{ request()->routeIs('home') ? '' : 'bg-white/95 backdrop-blur-md shadow-subtle border-b border-border' }}"
-            :class="{
-                'bg-white/95 backdrop-blur-md shadow-subtle border-b border-border text-charcoal': scrolled || !isHome,
-                'bg-charcoal-dark/30 backdrop-blur-sm text-white border-b border-white/10': !scrolled && isHome
-            }">
+    <!-- Main Navigation Header (Bright, Clean & Crisp White by Default) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-border text-charcoal transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
                 <!-- Brand Identity -->
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="group flex flex-col">
-                        <span class="font-serif text-2xl font-bold tracking-wider transition-colors"
-                              :class="(scrolled || !isHome) ? 'text-charcoal' : 'text-white'">
+                        <span class="font-serif text-2xl font-bold tracking-wider text-charcoal transition-colors">
                             SUJATA<span class="font-light italic ml-1 text-primary">TOURS</span>
                         </span>
-                        <span class="text-[9px] uppercase tracking-[0.25em] font-medium transition-colors"
-                              :class="(scrolled || !isHome) ? 'text-charcoal-muted' : 'text-sand-300'">
+                        <span class="text-[9px] uppercase tracking-[0.25em] font-medium text-charcoal-muted transition-colors">
                             Premium Mobility & Chauffeur Fleet
                         </span>
                     </a>
                 </div>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center gap-7">
-                    <a href="{{ route('home') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('home') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
-                        Home
-                    </a>
-
-                    <!-- Vehicles Dropdown / Link -->
-                    <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('vehicles.index') }}" 
-                           class="inline-flex items-center gap-1 text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.*') ? 'border-primary' : 'border-transparent' }}"
-                           :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
-                            <span>Vehicles</span>
-                            <svg class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </a>
-                        <div x-show="open" 
-                             x-transition:enter="transition ease-out duration-150"
-                             x-transition:enter-start="opacity-0 translate-y-1"
-                             x-transition:enter-end="opacity-100 translate-y-0"
-                             x-transition:leave="transition ease-in duration-100"
-                             x-transition:leave-start="opacity-100 translate-y-0"
-                             x-transition:leave-end="opacity-0 translate-y-1"
-                             class="absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-card border border-border py-2 text-charcoal z-50">
-                            <a href="{{ route('vehicles.cars') }}" class="flex flex-col px-4 py-2 hover:bg-sand-100 transition-colors">
-                                <span class="text-xs font-bold text-charcoal">Cars & Premium SUVs</span>
-                                <span class="text-[10px] text-charcoal-muted">Swift Dzire, Innova Crysta, Fortuner</span>
-                            </a>
-                            <a href="{{ route('vehicles.tempo-travellers') }}" class="flex flex-col px-4 py-2 hover:bg-sand-100 transition-colors border-t border-border/50">
-                                <span class="text-xs font-bold text-charcoal">Tempo Travellers</span>
-                                <span class="text-[10px] text-charcoal-muted">12, 17, 26 Seater Maharaja & Urbania</span>
-                            </a>
-                            <a href="{{ route('vehicles.buses') }}" class="flex flex-col px-4 py-2 hover:bg-sand-100 transition-colors border-t border-border/50">
-                                <span class="text-xs font-bold text-charcoal">Luxury Tourist Coaches</span>
-                                <span class="text-[10px] text-charcoal-muted">21 to 45 Seater AC Buses</span>
-                            </a>
-                            <a href="{{ route('vehicles.index') }}" class="block px-4 py-2 text-xs font-semibold text-primary hover:bg-sand-100 transition-colors border-t border-border">
-                                Browse Complete Fleet →
-                            </a>
-                        </div>
-                    </div>
-
+                <!-- Desktop Navigation Links (Clean: Cars, Tempo Travellers, Buses, About, Contact) -->
+                <nav class="hidden lg:flex items-center gap-8">
                     <a href="{{ route('vehicles.cars') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.cars') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
+                       class="text-xs uppercase tracking-wider font-bold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.cars') ? 'border-primary text-primary' : 'border-transparent text-charcoal hover:text-primary' }}">
                         Cars
                     </a>
 
                     <a href="{{ route('vehicles.tempo-travellers') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.tempo-travellers') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
+                       class="text-xs uppercase tracking-wider font-bold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.tempo-travellers') ? 'border-primary text-primary' : 'border-transparent text-charcoal hover:text-primary' }}">
                         Tempo Travellers
                     </a>
 
                     <a href="{{ route('vehicles.buses') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.buses') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
+                       class="text-xs uppercase tracking-wider font-bold transition-colors pb-1 border-b-2 {{ request()->routeIs('vehicles.buses') ? 'border-primary text-primary' : 'border-transparent text-charcoal hover:text-primary' }}">
                         Buses
                     </a>
 
-                    <a href="{{ url('/outstation-cab-jaipur') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 border-transparent"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
-                        Routes
-                    </a>
-
                     <a href="{{ route('about') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('about') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
+                       class="text-xs uppercase tracking-wider font-bold transition-colors pb-1 border-b-2 {{ request()->routeIs('about') ? 'border-primary text-primary' : 'border-transparent text-charcoal hover:text-primary' }}">
                         About
                     </a>
 
                     <a href="{{ route('contact') }}" 
-                       class="text-xs uppercase tracking-wider font-semibold transition-colors pb-1 border-b-2 {{ request()->routeIs('contact') ? 'border-primary' : 'border-transparent' }}"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white/90 hover:text-white'">
+                       class="text-xs uppercase tracking-wider font-bold transition-colors pb-1 border-b-2 {{ request()->routeIs('contact') ? 'border-primary text-primary' : 'border-transparent text-charcoal hover:text-primary' }}">
                         Contact
                     </a>
                 </nav>
 
                 <!-- Header Actions -->
-                <div class="hidden lg:flex items-center gap-4">
+                <div class="hidden lg:flex items-center gap-5">
                     <a href="tel:+919829012345" 
-                       class="inline-flex items-center gap-2 text-xs font-bold tracking-wide transition-colors py-2 px-3 rounded-lg"
-                       :class="(scrolled || !isHome) ? 'text-charcoal hover:text-primary' : 'text-white hover:text-sand-200'">
-                        <span class="w-7 h-7 rounded-full flex items-center justify-center transition-colors"
-                              :class="(scrolled || !isHome) ? 'bg-primary/10 text-primary' : 'bg-white/20 text-white'">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                       class="inline-flex items-center gap-2 text-xs font-bold tracking-wide text-charcoal hover:text-primary transition-colors py-2 px-3 rounded-lg">
+                        <span class="w-8 h-8 rounded-full flex items-center justify-center bg-primary/10 text-primary transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </span>
                         <span>098290 12345</span>
                     </a>
 
                     <a href="{{ route('home') }}#quick-booking" 
-                       class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all duration-200"
-                       :class="(scrolled || !isHome) ? 'bg-primary hover:bg-primary-hover' : 'bg-primary hover:bg-primary-hover shadow-lg'">
+                       class="inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider text-white bg-primary hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-200">
                         Book a Vehicle
                     </a>
                 </div>
@@ -222,15 +162,13 @@
                 <!-- Mobile Menu Button -->
                 <div class="flex items-center gap-2 lg:hidden">
                     <a href="tel:+919829012345" 
-                       class="p-2 rounded-lg transition-colors"
-                       :class="(scrolled || !isHome) ? 'bg-sand-200 text-charcoal' : 'bg-white/20 text-white'"
+                       class="p-2 rounded-lg transition-colors bg-sand-200 text-charcoal"
                        aria-label="Call Sujata Tours">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                     </a>
                     <button @click="mobileMenuOpen = !mobileMenuOpen" 
                             type="button" 
-                            class="p-2 rounded-lg transition-colors focus:outline-none"
-                            :class="(scrolled || !isHome) ? 'text-charcoal hover:bg-sand-200' : 'text-white hover:bg-white/20'"
+                            class="p-2 rounded-lg text-charcoal hover:bg-sand-200 transition-colors focus:outline-none"
                             aria-label="Toggle Navigation">
                         <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                         <svg x-show="mobileMenuOpen" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -244,12 +182,9 @@
              x-cloak 
              @click.away="mobileMenuOpen = false" 
              class="lg:hidden border-t border-border bg-white px-5 pt-4 pb-6 space-y-3 shadow-float text-charcoal">
-            <a href="{{ route('home') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Home</a>
-            <a href="{{ route('vehicles.index') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">All Vehicles</a>
             <a href="{{ route('vehicles.cars') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Cars & SUVs</a>
             <a href="{{ route('vehicles.tempo-travellers') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Tempo Travellers (12-26 Seater)</a>
             <a href="{{ route('vehicles.buses') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Luxury Buses (21-45 Seater)</a>
-            <a href="{{ url('/outstation-cab-jaipur') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Popular Routes</a>
             <a href="{{ route('about') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">About Sujata Tours</a>
             <a href="{{ route('contact') }}" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-sand-100">Contact Desk</a>
             
