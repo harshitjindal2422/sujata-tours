@@ -37,7 +37,7 @@
                 </div>
 
                 <div>
-                    <span class="text-xs text-charcoal-muted block">Travel Date &amp; Time:</span>
+                    <span class="text-xs text-charcoal-muted block">Travel Date and Time:</span>
                     <strong class="text-navy-900">{{ $booking->travel_date->format('d M, Y') }} ({{ $booking->pickup_time ?: 'Morning' }})</strong>
                 </div>
 

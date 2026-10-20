@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $vehicle->meta_title ?: "{$vehicle->name} Rental in Jaipur with Driver | Sujata Tours")
-@section('meta_description', $vehicle->meta_description ?: "Hire {$vehicle->name} in Jaipur. Clean {$vehicle->seating_capacity} seater with air conditioning and experienced chauffeur. Transparent per-km rates for Rajasthan outstation & local city trips.")
+@section('meta_description', $vehicle->meta_description ?: "Hire {$vehicle->name} in Jaipur. Clean {$vehicle->seating_capacity} seater with air conditioning and experienced chauffeur. Transparent per-km rates for Rajasthan outstation and local city trips.")
 @section('canonical_url', route('vehicles.show', $vehicle->slug))
 @section('og_image', asset($vehicle->image))
 
@@ -29,7 +29,7 @@
 @endpush
 
 @section('content')
-    <!-- Breadcrumb & Top Bar -->
+    <!-- Breadcrumb and Top Bar -->
     <div class="bg-surface-subtle border-b border-border py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center gap-2 text-xs text-charcoal-muted" aria-label="Breadcrumb">
@@ -50,7 +50,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
-            <!-- Left Column: Media & Specifications (7 Cols) -->
+            <!-- Left Column: Media and Specifications (7 Cols) -->
             <div class="lg:col-span-7 space-y-8">
                 
                 <!-- Main Vehicle Photo -->
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <!-- Title & Tagline -->
+                <!-- Title and Tagline -->
                 <div>
                     <h1 class="text-3xl sm:text-4xl font-black text-navy-900 tracking-tight">
                         {{ $vehicle->name }}
@@ -88,7 +88,7 @@
                 <!-- Detailed Specifications Table -->
                 <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-4">
                     <h2 class="text-lg font-bold text-navy-900 border-b border-border pb-3">
-                        Vehicle Specifications &amp; Features
+                        Vehicle Specifications and Features
                     </h2>
 
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -119,12 +119,12 @@
 
                         <div class="p-3 rounded-lg bg-surface-muted">
                             <span class="block text-[11px] uppercase font-bold text-charcoal-muted">Availability</span>
-                            <span class="text-base font-bold text-navy-900">Local &amp; Outstation</span>
+                            <span class="text-base font-bold text-navy-900">Local and Outstation</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Description & Overview -->
+                <!-- Description and Overview -->
                 <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-3">
                     <h2 class="text-lg font-bold text-navy-900">Vehicle Overview</h2>
                     <div class="text-sm text-charcoal leading-relaxed space-y-3">
@@ -132,7 +132,7 @@
                     </div>
 
                     @if($vehicle->ideal_for)
-                        <div class="mt-4 p-4 rounded-xl bg-amber-50/60 border border-amber-200/80 text-xs text-amber-950">
+                        <div class="mt-4 p-4 rounded-xl bg-sand-100 border border-border text-xs text-charcoal">
                             <strong>Recommended For:</strong> {{ $vehicle->ideal_for }}
                         </div>
                     @endif
@@ -141,7 +141,7 @@
                 <!-- Features Checklist -->
                 @if($vehicle->features && count($vehicle->features))
                     <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-4">
-                        <h2 class="text-lg font-bold text-navy-900">Included Amenities &amp; Standards</h2>
+                        <h2 class="text-lg font-bold text-navy-900">Included Amenities and Standards</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-charcoal">
                             @foreach($vehicle->features as $feature)
                                 <div class="flex items-center gap-2.5">
@@ -155,7 +155,7 @@
 
                 <!-- Transparent Fare Structure Rules -->
                 <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-4">
-                    <h2 class="text-lg font-bold text-navy-900">Fare &amp; Billing Terms</h2>
+                    <h2 class="text-lg font-bold text-navy-900">Fare and Billing Terms</h2>
                     <div class="space-y-2 text-xs text-charcoal-muted leading-relaxed">
                         <div class="flex justify-between py-2 border-b border-slate-100">
                             <span class="font-semibold text-charcoal">Outstation Running Rate:</span>

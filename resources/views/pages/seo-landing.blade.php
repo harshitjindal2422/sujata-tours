@@ -88,7 +88,7 @@
         </div>
     </div>
 
-    <!-- Main Content & Booking Layout -->
+    <!-- Main Content and Booking Layout -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
@@ -99,7 +99,7 @@
                 @if($seoPage->route_details && count($seoPage->route_details))
                     <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-4">
                         <h2 class="text-base font-bold uppercase tracking-wider text-charcoal-muted border-b border-border pb-2">
-                            Key Details &amp; Highway Logistics
+                            Key Details and Highway Logistics
                         </h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                             @foreach($seoPage->route_details as $key => $val)
@@ -129,7 +129,7 @@
                 <!-- Service Features -->
                 @if($seoPage->features && count($seoPage->features))
                     <div class="bg-white rounded-2xl border border-border p-6 shadow-subtle space-y-4">
-                        <h2 class="text-xl font-bold text-navy-900">Service Standards &amp; Inclusions</h2>
+                        <h2 class="text-xl font-bold text-navy-900">Service Standards and Inclusions</h2>
                         <div class="space-y-3 text-sm text-charcoal">
                             @foreach($seoPage->features as $feat)
                                 <div class="flex items-start gap-3">
@@ -173,7 +173,7 @@
                     <!-- Quick Support Helpline -->
                     <div class="mt-6 p-5 rounded-xl bg-navy-900 text-white shadow-subtle flex items-center justify-between">
                         <div>
-                            <span class="block text-xs font-bold text-amber-400 uppercase tracking-wider">Fast Route Assistance</span>
+                            <span class="block text-xs font-bold text-sand-200 uppercase tracking-wider">Fast Route Assistance</span>
                             <span class="text-sm font-semibold">Speak with Dispatch Team</span>
                         </div>
                         <a href="tel:+919829012345" class="px-4 py-2 bg-white text-navy-900 text-xs font-bold rounded-lg hover:bg-slate-100 transition-colors">
@@ -202,7 +202,7 @@
         <!-- Internal Links to Other Common Rajasthan Routes -->
         <div class="mt-16 p-8 bg-surface-subtle rounded-2xl border border-border">
             <h3 class="text-base font-bold text-navy-900 mb-4">
-                Other Popular Intercity &amp; Tourist Routes
+                Other Popular Intercity and Tourist Routes
             </h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
                 <a href="{{ url('/jaipur-to-delhi-taxi') }}" class="text-charcoal hover:text-navy-900 font-medium">&bull; Jaipur to Delhi Taxi</a>

@@ -12,7 +12,7 @@
         
         <div class="text-center mb-8">
             <span class="text-2xl font-black text-navy-900 tracking-tight block">SUJATA TOURS</span>
-            <span class="text-xs uppercase font-bold text-slate-500 tracking-wider">Fleet &amp; Dispatch Console</span>
+            <span class="text-xs uppercase font-bold text-slate-500 tracking-wider">Fleet and Dispatch Console</span>
         </div>
 
         @if(session('success'))

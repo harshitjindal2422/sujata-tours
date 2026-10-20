@@ -22,12 +22,12 @@
             </section>
 
             <section class="space-y-2">
-                <h2 class="text-lg font-bold text-navy-900">3. Driver &amp; Route Coordination</h2>
+                <h2 class="text-lg font-bold text-navy-900">3. Driver and Route Coordination</h2>
                 <p>Your name, pickup address, and contact number are securely shared only with the assigned commercial chauffeur and fleet coordinator on duty for the purpose of meeting you punctually.</p>
             </section>
 
             <section class="space-y-2">
-                <h2 class="text-lg font-bold text-navy-900">4. Contact &amp; Data Inquiries</h2>
+                <h2 class="text-lg font-bold text-navy-900">4. Contact and Data Inquiries</h2>
                 <p>If you have any questions regarding your stored booking inquiries or wish to request data removal, please contact our dispatch desk at <a href="mailto:info@sujatatours.com" class="text-navy-900 underline font-semibold">info@sujatatours.com</a> or call +91 98290 12345.</p>
             </section>
         </div>

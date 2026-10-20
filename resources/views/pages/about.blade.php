@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About Sujata Tours | Established Vehicle Rental & Transport in Jaipur')
+@section('title', 'About Sujata Tours | Established Vehicle Rental and Transport in Jaipur')
 @section('meta_description', 'Learn about Sujata Tours, a trusted vehicle rental and commercial transportation provider founded in Jaipur. Over 15 years operating cars, tempo travellers, and buses.')
 @section('canonical_url', route('about'))
 
@@ -8,7 +8,7 @@
     <!-- About Header -->
     <div class="bg-navy-900 text-white py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">About Sujata Tours</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary-light">About Sujata Tours</span>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-1">
                 Reliable Transportation Grounded in Jaipur
             </h1>
@@ -18,10 +18,10 @@
         </div>
     </div>
 
-    <!-- Company Background & Values -->
+    <!-- Company Background and Values -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
         
-        <!-- Grid: Heritage & Reality -->
+        <!-- Grid: Heritage and Reality -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-5 text-sm sm:text-base text-charcoal leading-relaxed">
                 <span class="text-xs font-extrabold uppercase tracking-widest text-navy-900">Our Foundation</span>
@@ -80,7 +80,7 @@
                     <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center text-navy-900 font-bold">
                         03
                     </div>
-                    <h3 class="text-lg font-bold text-navy-900">Accountability &amp; Direct Support</h3>
+                    <h3 class="text-lg font-bold text-navy-900">Accountability and Direct Support</h3>
                     <p class="text-xs text-charcoal-muted leading-relaxed">
                         You speak with an actual fleet manager who knows which car is assigned to you. If your flight arrives early or late, we adapt without leaving you stranded.
                     </p>
@@ -91,19 +91,19 @@
         <!-- Stats Bar -->
         <div class="bg-navy-900 text-white rounded-2xl p-8 sm:p-12 shadow-card grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-                <span class="block text-4xl font-black text-amber-400">15+</span>
+                <span class="block text-4xl font-black text-white">15+</span>
                 <span class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1 block">Years in Operation</span>
             </div>
             <div>
-                <span class="block text-4xl font-black text-amber-400">42,000+</span>
+                <span class="block text-4xl font-black text-white">42,000+</span>
                 <span class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1 block">Trips Completed</span>
             </div>
             <div>
-                <span class="block text-4xl font-black text-amber-400">65+</span>
+                <span class="block text-4xl font-black text-white">65+</span>
                 <span class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1 block">Commercial Vehicles</span>
             </div>
             <div>
-                <span class="block text-4xl font-black text-amber-400">24/7</span>
+                <span class="block text-4xl font-black text-white">24/7</span>
                 <span class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1 block">Dispatch Desk</span>
             </div>
         </div>

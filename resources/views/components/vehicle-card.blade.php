@@ -33,7 +33,7 @@
     <!-- Vehicle Content -->
     <div class="p-6 flex-1 flex flex-col justify-between">
         <div>
-            <!-- Title & Tagline -->
+            <!-- Title and Tagline -->
             <div class="mb-4">
                 <h3 class="text-xl font-bold text-navy-900 group-hover:text-slate-800 transition-colors">
                     <a href="{{ route('vehicles.show', $vehicle->slug) }}">
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <!-- Pricing & Action -->
+        <!-- Pricing and Action -->
         <div class="pt-4 border-t border-border flex items-center justify-between gap-3">
             <div>
                 <span class="block text-[11px] uppercase font-bold text-charcoal-muted tracking-wide">Starting From</span>

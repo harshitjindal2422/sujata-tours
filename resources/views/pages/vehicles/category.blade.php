@@ -23,7 +23,7 @@
                 </h1>
                 
                 @if($category->subtitle)
-                    <p class="text-amber-400 font-bold text-sm uppercase tracking-wider mt-2">
+                    <p class="text-primary-light font-bold text-sm uppercase tracking-wider mt-2">
                         {{ $category->subtitle }}
                     </p>
                 @endif

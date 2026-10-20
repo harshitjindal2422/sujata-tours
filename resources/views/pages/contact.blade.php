@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Sujata Tours | Jaipur Fleet Office & Booking Desk')
+@section('title', 'Contact Sujata Tours | Jaipur Fleet Office and Booking Desk')
 @section('meta_description', 'Contact Sujata Tours in Jaipur for vehicle bookings, quotes, and corporate transport inquiries. Call 098290 12345 or visit our Sindhi Camp office.')
 @section('canonical_url', route('contact'))
 
@@ -8,7 +8,7 @@
     <!-- Contact Header -->
     <div class="bg-navy-900 text-white py-16 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Get In Touch</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary-light">Get In Touch</span>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-1">
                 Contact Our Jaipur Fleet Desk
             </h1>
@@ -18,14 +18,14 @@
         </div>
     </div>
 
-    <!-- Contact Info & Form -->
+    <!-- Contact Info and Form -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             <!-- Left: Contact Details (5 cols) -->
             <div class="lg:col-span-5 space-y-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-navy-900">Head Office &amp; Fleet Garage</h2>
+                    <h2 class="text-2xl font-bold text-navy-900">Head Office and Fleet Garage</h2>
                     <p class="text-sm text-charcoal-muted mt-2 leading-relaxed">
                         Centrally located near Sindhi Camp bus station and Jaipur Railway Junction for quick dispatches to any city location or airport terminal.
                     </p>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="text-sm">
                             <strong class="block text-navy-900 font-bold">Dispatch Phone Numbers:</strong>
-                            <p class="mt-0.5"><a href="tel:+919829012345" class="text-navy-900 font-bold hover:text-amber-700">+91 98290 12345</a></p>
+                            <p class="mt-0.5"><a href="tel:+919829012345" class="text-navy-900 font-bold hover:text-primary">+91 98290 12345</a></p>
                             <p><a href="tel:+919414067890" class="text-charcoal-muted hover:text-navy-900">+91 94140 67890 (Helpline)</a></p>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sujata Tours | Premium Car, Tempo Traveller & Bus Rentals')
+@section('title', 'Sujata Tours | Premium Car, Tempo Traveller and Bus Rentals')
 @section('meta_description', 'Sujata Tours provides premium chauffeur-driven cars, luxury tempo travellers, and tourist buses for local travel, outstation road trips, and group transportation across Rajasthan and North India.')
 @section('canonical_url', route('home'))
 
@@ -28,10 +28,10 @@
 @section('content')
 
     <!-- =========================================================================
-         1. CINEMATIC FULL-WIDTH HERO SLIDER (Bright, Auto-sliding, Height-optimized)
+         1. CINEMATIC FULL-WIDTH HERO SLIDER (Viewport-Docked, Minimal and Sharp, Auto-sliding)
          ========================================================================= -->
-    <section class="relative bg-charcoal-dark overflow-hidden w-full select-none h-[400px] sm:h-[430px] lg:h-[450px]" 
-             style="min-height: 400px; height: 440px;"
+    <section class="relative bg-charcoal-dark overflow-hidden w-full select-none h-[490px] sm:h-[520px] lg:h-[550px]" 
+             style="min-height: 480px; height: clamp(480px, calc(100vh - 180px), 560px);"
              x-data="{
                  activeSlide: 0,
                  totalSlides: 3,
@@ -43,7 +43,7 @@
                      if (this.timer) clearInterval(this.timer);
                      this.timer = setInterval(() => {
                          this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
-                     }, 5000);
+                     }, 5500);
                  },
                  goTo(i) {
                      this.activeSlide = i;
@@ -59,10 +59,10 @@
                  }
              }">
 
-        <!-- Slider Images & Backdrop -->
+        <!-- Slider Images and Backdrop -->
         <div class="relative w-full h-full overflow-hidden">
 
-            <!-- SLIDE 1: Jaipur Heritage & Chauffeur Fleet -->
+            <!-- SLIDE 1: Jaipur Heritage and Chauffeur Fleet -->
             <div x-show="activeSlide === 0"
                  x-transition:enter="transition-opacity ease-out duration-700"
                  x-transition:enter-start="opacity-0"
@@ -76,63 +76,47 @@
                      alt="Sujata Tours Jaipur Fleet" 
                      class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <!-- Radiant semi-transparent overlay: dark on left for text readability, clear & bright on right for vehicle view -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <!-- Radiant semi-transparent overlay: dark on left for text readability, clear and bright on right for vehicle view -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
 
-                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-16 sm:pb-20 lg:pb-24">
                     <div class="max-w-2xl">
-                        <!-- Bright Badge -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>★ 4.9/5 RATED • SUJATA TOURS JAIPUR FLEET</span>
+                        <!-- Minimal Sharp Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white text-[11px] tracking-widest font-bold uppercase mb-3 shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>4.9/5 RATED • SUJATA TOURS JAIPUR FLEET</span>
                         </div>
 
-                        <!-- Striking Bright Headline -->
-                        <h1 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
+                        <!-- Striking Sharp Headline -->
+                        <h1 class="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
                             Your Journey.<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Our Finest Vehicles.</span>
+                            <span class="font-normal italic text-white/90">Our Finest Fleet.</span>
                         </h1>
 
-                        <!-- Bright Readable Subtext -->
-                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
-                            Premium chauffeur-driven cars, tempo travellers and tourist coaches for local city travel, outstation road trips and group tours across Rajasthan.
+                        <!-- Minimal Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100/90 font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)] max-w-xl mb-6">
+                            Chauffeur-driven sedans, luxury tempo travellers, and tourist coaches across Rajasthan and North India.
                         </p>
-
-                        <!-- Key Feature Highlights Strip -->
-                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Uniformed Chauffeur
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Clean AC Vehicles
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Transparent Rates
-                            </span>
-                        </div>
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap items-center gap-3">
                             <a href="#quick-booking" 
-                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-7 py-3 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg transition-all">
                                 <span>Book a Vehicle</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </a>
                             <a href="{{ route('vehicles.index') }}" 
-                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
+                               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 transition-all shadow-sm">
                                 <span>Explore Vehicles</span>
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 2: Highway & Expressway Corridors -->
+            <!-- SLIDE 2: Highway and Expressway Corridors -->
             <div x-show="activeSlide === 1"
                  x-transition:enter="transition-opacity ease-out duration-700"
                  x-transition:enter-start="opacity-0"
@@ -146,62 +130,46 @@
                      alt="Highway and Expressway Travel" 
                      class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
 
-                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-16 sm:pb-20 lg:pb-24">
                     <div class="max-w-2xl">
-                        <!-- Bright Badge -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>DELHI-MUMBAI EXPRESSWAY & OUTSTATION</span>
+                        <!-- Minimal Sharp Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white text-[11px] tracking-widest font-bold uppercase mb-3 shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>DELHI-MUMBAI EXPRESSWAY AND OUTSTATION</span>
                         </div>
 
-                        <!-- Striking Bright Headline -->
-                        <h2 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
+                        <!-- Striking Sharp Headline -->
+                        <h2 class="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
                             Go Outstation.<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Travel in Comfort.</span>
+                            <span class="font-normal italic text-white/90">Travel in Comfort.</span>
                         </h2>
 
-                        <!-- Bright Readable Subtext -->
-                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
-                            Chauffeur-driven highway fleets across the Delhi-Mumbai Expressway, Agra, Jodhpur, Udaipur, and all North India routes.
+                        <!-- Minimal Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100/90 font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)] max-w-xl mb-6">
+                            Chauffeur-driven highway fleets across the Delhi-Mumbai Expressway, Agra, Jodhpur, and Udaipur.
                         </p>
-
-                        <!-- Key Feature Highlights Strip -->
-                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Highway Specialists
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                24x7 Control Room
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Fastag Inclusions
-                            </span>
-                        </div>
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap items-center gap-3">
                             <a href="{{ route('vehicles.index') }}" 
-                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-7 py-3 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg transition-all">
                                 <span>Explore Vehicles</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                             <a href="{{ url('/outstation-cab-jaipur') }}" 
-                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
+                               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 transition-all shadow-sm">
                                 <span>View Routes</span>
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 3: Airport Transfers & Coaches -->
+            <!-- SLIDE 3: Airport Transfers and Coaches -->
             <div x-show="activeSlide === 2"
                  x-transition:enter="transition-opacity ease-out duration-700"
                  x-transition:enter-start="opacity-0"
@@ -215,55 +183,39 @@
                      alt="Airport Pickups and Tourist Coach Buses" 
                      class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
-                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
 
-                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-10 sm:pb-14">
+                <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-16 sm:pb-20 lg:pb-24">
                     <div class="max-w-2xl">
-                        <!-- Bright Badge -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/80 text-amber-300 text-xs tracking-wider font-extrabold uppercase mb-2.5 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>AIRPORT ARRIVALS & LUXURY COACHES</span>
+                        <!-- Minimal Sharp Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white text-[11px] tracking-widest font-bold uppercase mb-3 shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>AIRPORT ARRIVALS AND LUXURY COACHES</span>
                         </div>
 
-                        <!-- Striking Bright Headline -->
-                        <h2 class="font-serif text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] mb-2">
-                            Travel Together.<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400 italic font-bold drop-shadow-[0_0_20px_rgba(251,191,36,0.4)]">Travel in Luxury.</span>
+                        <!-- Striking Sharp Headline -->
+                        <h2 class="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
+                            Group Travel.<br>
+                            <span class="font-normal italic text-white/90">Pure Comfort and Luxury.</span>
                         </h2>
 
-                        <!-- Bright Readable Subtext -->
-                        <p class="text-xs sm:text-sm lg:text-base text-sand-100 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-xl mb-3">
-                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for families, destination weddings, and corporate delegations.
+                        <!-- Minimal Readable Subtext -->
+                        <p class="text-xs sm:text-sm lg:text-base text-sand-100/90 font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)] max-w-xl mb-6">
+                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for events and family tours.
                         </p>
-
-                        <!-- Key Feature Highlights Strip -->
-                        <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white mb-4">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Flight Tracking Pickup
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Large Luggage Boots
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-white/30 text-sand-100 shadow-sm">
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                12 to 55 Seater Range
-                            </span>
-                        </div>
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap items-center gap-3">
                             <a href="#quick-booking" 
-                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-6 py-2.5 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-[0_4px_18px_rgba(184,92,106,0.7)] hover:shadow-[0_6px_25px_rgba(184,92,106,0.9)] transition-all">
+                               class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-7 py-3 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg transition-all">
                                 <span>Book a Vehicle</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </a>
                             <a href="{{ route('vehicles.buses') }}" 
-                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/20 hover:bg-white/35 backdrop-blur-md border border-white/50 transition-all shadow-md">
+                               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 transition-all shadow-sm">
                                 <span>View Coaches</span>
-                                <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
                     </div>
@@ -272,147 +224,679 @@
 
         </div>
 
-        <!-- Slider Navigation Controls & Numbering -->
-        <div class="absolute bottom-16 sm:bottom-18 right-4 sm:right-8 lg:right-12 z-30 flex items-center gap-4">
-            <div class="text-sand-200 font-serif text-xs tracking-widest flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow">
-                <span class="text-amber-300 text-xs font-black" x-text="'0' + (activeSlide + 1)"></span>
+        <!-- Slider Navigation Controls and Numbering -->
+        <div class="absolute bottom-20 sm:bottom-24 right-4 sm:right-8 lg:right-12 z-20 flex items-center gap-3">
+            <div class="text-white font-serif text-xs tracking-widest flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/20 shadow">
+                <span class="text-white text-xs font-bold" x-text="'0' + (activeSlide + 1)"></span>
                 <span class="text-white/40">/</span>
                 <span class="text-white/70 text-xs">03</span>
             </div>
 
             <div class="flex items-center gap-2">
                 <button @click="prev()" 
-                        class="w-9 h-9 rounded-full border border-white/40 bg-black/60 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
+                        class="w-9 h-9 rounded-full border border-white/30 bg-black/50 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
                         aria-label="Previous Slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                 </button>
                 <button @click="next()" 
-                        class="w-9 h-9 rounded-full border border-white/40 bg-black/60 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
+                        class="w-9 h-9 rounded-full border border-white/30 bg-black/50 hover:bg-primary hover:border-primary text-white flex items-center justify-center transition-all focus:outline-none shadow-lg backdrop-blur-sm active:scale-95"
                         aria-label="Next Slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Interactive Slide Indicator Dots & Progress Bar -->
+        <!-- Interactive Slide Indicator Dots and Progress Bar -->
         <div class="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/20 flex">
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(0)"
-                 :class="(activeSlide === 0) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
+                 :class="(activeSlide === 0) ? 'bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)]' : 'bg-transparent hover:bg-white/20'">
             </div>
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(1)"
-                 :class="(activeSlide === 1) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
+                 :class="(activeSlide === 1) ? 'bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)]' : 'bg-transparent hover:bg-white/20'">
             </div>
             <div class="h-full flex-1 transition-all duration-300 cursor-pointer"
                  @click="goTo(2)"
-                 :class="(activeSlide === 2) ? 'bg-amber-400 shadow-[0_0_12px_#FBBF24]' : 'bg-transparent hover:bg-white/30'">
+                 :class="(activeSlide === 2) ? 'bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)]' : 'bg-transparent hover:bg-white/20'">
             </div>
         </div>
 
     </section>
 
-    <!-- =========================================================================
-         2. FLOATING QUICK BOOKING / AVAILABILITY BAR (Clearly visible above the fold)
+    <!-- ========================================================================    <!-- =========================================================================
+         2. INTERACTIVE LIVE FARE & ROUTE CALCULATOR (Outstation, Local & Airport)
          ========================================================================= -->
-    <section id="quick-booking" 
-             class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 lg:-mt-16"
+    <section id="fare-calculator" 
+             data-anchor="quick-booking"
+             class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 lg:-mt-24"
              x-data="{
+                 tab: 'outstation', // 'outstation', 'local', 'airport'
+                 
+                 // Outstation State
                  pickup: 'Jaipur',
-                 drop: '',
+                 outstationRoute: 'delhi',
+                 customDestination: '',
+                 customKm: 280,
+                 tripType: 'one_way', // 'one_way' or 'round_trip'
+                 days: 1,
                  travelDate: '{{ date('Y-m-d', strtotime('+1 day')) }}',
-                 vehicleType: 'Car Rental',
-                 passengers: '4',
-                 modalOpen: false
+                 pickupTime: '06:00 AM',
+                 
+                 // Local State
+                 localPackage: '8h_80k', // '4h_40k', '8h_80k', '12h_120k'
+                 localDate: '{{ date('Y-m-d', strtotime('+1 day')) }}',
+                 localTime: '09:00 AM',
+                 
+                 // Airport State
+                 airportDirection: 'pickup', // 'pickup' or 'drop'
+                 airportArea: 'city',
+                 flightNumber: '',
+                 airportDate: '{{ date('Y-m-d', strtotime('+1 day')) }}',
+                 airportTime: '10:30 AM',
+                 
+                 // Selected Vehicle Key
+                 selectedVehicle: 'crysta',
+                 
+                 // Vehicles Catalog
+                 vehicles: {
+                     'dzire': {
+                         name: 'Maruti Suzuki Dzire',
+                         type: 'Sedan (4+1 Seater)',
+                         category: 'Car Rental',
+                         seats: 4,
+                         luggage: '2 Bags',
+                         rate: 10,
+                         driverAllowance: 300,
+                         minKm: 250,
+                         tag: 'Economy Choice',
+                         localRates: { '4h_40k': 1200, '8h_80k': 1800, '12h_120k': 2400, extraKm: 11, extraHr: 150 },
+                         airportRates: { 'city': 799, 'suburb': 899, 'outskirts': 1199 },
+                         icon: '🚗'
+                     },
+                     'ertiga': {
+                         name: 'Maruti Suzuki Ertiga',
+                         type: 'MPV (6+1 Seater)',
+                         category: 'Car Rental',
+                         seats: 6,
+                         luggage: '3 Bags',
+                         rate: 12,
+                         driverAllowance: 350,
+                         minKm: 250,
+                         tag: 'Family Value',
+                         localRates: { '4h_40k': 1500, '8h_80k': 2200, '12h_120k': 2900, extraKm: 13, extraHr: 200 },
+                         airportRates: { 'city': 1199, 'suburb': 1299, 'outskirts': 1599 },
+                         icon: '🚙'
+                     },
+                     'crysta': {
+                         name: 'Toyota Innova Crysta',
+                         type: 'Executive SUV (7+1)',
+                         category: 'Car Rental',
+                         seats: 7,
+                         luggage: '4 Bags',
+                         rate: 16,
+                         driverAllowance: 400,
+                         minKm: 250,
+                         tag: 'Most Popular',
+                         localRates: { '4h_40k': 1800, '8h_80k': 2600, '12h_120k': 3400, extraKm: 17, extraHr: 250 },
+                         airportRates: { 'city': 1499, 'suburb': 1599, 'outskirts': 1999 },
+                         icon: '⭐'
+                     },
+                     'tempo12': {
+                         name: '12-Seater Maharaja Tempo',
+                         type: '1x1 Luxury Recliner',
+                         category: 'Tempo Traveller',
+                         seats: 12,
+                         luggage: '10 Bags',
+                         rate: 22,
+                         driverAllowance: 500,
+                         minKm: 250,
+                         tag: 'Plush Recliner',
+                         localRates: { '4h_40k': 3200, '8h_80k': 4500, '12h_120k': 5800, extraKm: 24, extraHr: 350 },
+                         airportRates: { 'city': 2499, 'suburb': 2699, 'outskirts': 3200 },
+                         icon: '🚐'
+                     },
+                     'tempo17': {
+                         name: '17-Seater Tempo Traveller',
+                         type: 'Pushback Group Coach',
+                         category: 'Tempo Traveller',
+                         seats: 17,
+                         luggage: '15 Bags',
+                         rate: 24,
+                         driverAllowance: 500,
+                         minKm: 250,
+                         tag: 'Medium Group',
+                         localRates: { '4h_40k': 3600, '8h_80k': 5000, '12h_120k': 6500, extraKm: 26, extraHr: 400 },
+                         airportRates: { 'city': 2999, 'suburb': 3200, 'outskirts': 3800 },
+                         icon: '🚐'
+                     },
+                     'tempo26': {
+                         name: '26-Seater Mini Coach',
+                         type: 'Mini Tourist Bus',
+                         category: 'Tempo Traveller',
+                         seats: 26,
+                         luggage: '20 Bags',
+                         rate: 32,
+                         driverAllowance: 600,
+                         minKm: 300,
+                         tag: 'Weddings & Tour',
+                         localRates: { '4h_40k': 4800, '8h_80k': 6500, '12h_120k': 8200, extraKm: 32, extraHr: 500 },
+                         airportRates: { 'city': 3999, 'suburb': 4500, 'outskirts': 5200 },
+                         icon: '🚌'
+                     },
+                     'bus45': {
+                         name: 'Luxury Tourist Coach (45S)',
+                         type: 'Deluxe AC Bus',
+                         category: 'Bus Rental',
+                         seats: 45,
+                         luggage: '45 Bags',
+                         rate: 45,
+                         driverAllowance: 800,
+                         minKm: 300,
+                         tag: 'Large Delegations',
+                         localRates: { '4h_40k': 6500, '8h_80k': 9500, '12h_120k': 12500, extraKm: 45, extraHr: 700 },
+                         airportRates: { 'city': 5999, 'suburb': 6999, 'outskirts': 8500 },
+                         icon: '🚍'
+                     }
+                 },
+                 
+                 // Route Presets
+                 routes: {
+                     'delhi': { name: 'Jaipur ➔ Delhi (NCR / IGI Airport)', destination: 'Delhi NCR', km: 270, time: '4.5 hrs', highway: 'NH-48 Expressway' },
+                     'agra': { name: 'Jaipur ➔ Agra (Taj Mahal & Fort)', destination: 'Agra', km: 240, time: '4.0 hrs', highway: 'NH-21 Highway' },
+                     'khatu': { name: 'Jaipur ➔ Khatu Shyam Ji & Salasar', destination: 'Khatu Shyam Ji', km: 180, time: '3.5 hrs', highway: 'Ringas Express Corridor' },
+                     'pushkar': { name: 'Jaipur ➔ Ajmer Sharif & Pushkar', destination: 'Ajmer / Pushkar', km: 145, time: '2.5 hrs', highway: 'NH-48 Highway' },
+                     'udaipur': { name: 'Jaipur ➔ Udaipur (City of Lakes)', destination: 'Udaipur', km: 395, time: '6.5 hrs', highway: 'NH-48 via Bhilwara' },
+                     'jodhpur': { name: 'Jaipur ➔ Jodhpur (Sun City)', destination: 'Jodhpur', km: 335, time: '5.5 hrs', highway: 'NH-25 Expressway' },
+                     'jaisalmer': { name: 'Jaipur ➔ Jaisalmer (Sam Sand Dunes)', destination: 'Jaisalmer', km: 570, time: '9.0 hrs', highway: 'NH-11 Desert Highway' },
+                     'ranthambore': { name: 'Jaipur ➔ Ranthambore (Tiger Safari)', destination: 'Ranthambore / Sawai Madhopur', km: 165, time: '3.5 hrs', highway: 'Jaipur-Kota Highway' },
+                     'bikaner': { name: 'Jaipur ➔ Bikaner (Junagarh Fort)', destination: 'Bikaner', km: 335, time: '5.5 hrs', highway: 'NH-52 Highway' },
+                     'mount_abu': { name: 'Jaipur ➔ Mount Abu (Hill Station)', destination: 'Mount Abu', km: 495, time: '8.0 hrs', highway: 'NH-48 via Sirohi' },
+                     'custom': { name: 'Custom Destination', destination: 'Custom Location', km: 250, time: 'Flexible', highway: 'State Highway' }
+                 },
+                 
+                 // Modal Control
+                 modalOpen: false,
+                 
+                 // Computed Helpers
+                 get activeVehicle() {
+                     return this.vehicles[this.selectedVehicle] || this.vehicles['crysta'];
+                 },
+                 
+                 get activeRoute() {
+                     if (this.outstationRoute === 'custom') {
+                         return {
+                             name: 'Jaipur ➔ ' + (this.customDestination || 'Outstation'),
+                             destination: this.customDestination || 'Outstation',
+                             km: parseInt(this.customKm) || 250,
+                             time: 'As per route',
+                             highway: 'Rajasthan State Highway'
+                         };
+                     }
+                     return this.routes[this.outstationRoute] || this.routes['delhi'];
+                 },
+                 
+                 get calculatedOutstationDistance() {
+                     let oneWay = this.activeRoute.km;
+                     if (this.tripType === 'one_way') {
+                         return Math.max(this.activeVehicle.minKm, oneWay);
+                     } else {
+                         let roundTrip = oneWay * 2;
+                         let minKmForDays = (parseInt(this.days) || 1) * this.activeVehicle.minKm;
+                         return Math.max(roundTrip, minKmForDays);
+                     }
+                 },
+                 
+                 get calculatedFare() {
+                     if (this.tab === 'outstation') {
+                         let km = this.calculatedOutstationDistance;
+                         let kmCharge = km * this.activeVehicle.rate;
+                         let daysCount = (this.tripType === 'one_way') ? 1 : (parseInt(this.days) || 1);
+                         let allowance = daysCount * this.activeVehicle.driverAllowance;
+                         return Math.round(kmCharge + allowance);
+                     } else if (this.tab === 'local') {
+                         return this.activeVehicle.localRates[this.localPackage] || 2600;
+                     } else if (this.tab === 'airport') {
+                         return this.activeVehicle.airportRates[this.airportArea] || 1499;
+                     }
+                     return 0;
+                 },
+                 
+                 get formattedCalculatedFare() {
+                     return '₹' + this.calculatedFare.toLocaleString('en-IN');
+                 },
+                 
+                 get whatsappUrl() {
+                     let msg = '';
+                     if (this.tab === 'outstation') {
+                         let tripLabel = (this.tripType === 'one_way') ? 'One-Way Drop' : ('Round-Trip (' + this.days + ' Days)');
+                         msg = `Namaste Sujata Tours! 🚖\n\nI want to check availability and book a vehicle:\n• Route: ${this.activeRoute.name}\n• Trip Type: ${tripLabel}\n• Vehicle: ${this.activeVehicle.name} (${this.activeVehicle.type})\n• Travel Date: ${this.travelDate} (${this.pickupTime})\n• Est. Distance: ${this.calculatedOutstationDistance} km\n• Estimated Fare: ${this.formattedCalculatedFare}\n\nPlease confirm vehicle availability and driver details.`;
+                     } else if (this.tab === 'local') {
+                         let pkgNames = {
+                             '4h_40k': '4 Hours / 40 Kms (Half Day / Meetings)',
+                             '8h_80k': '8 Hours / 80 Kms (Full Day Jaipur Sightseeing)',
+                             '12h_120k': '12 Hours / 120 Kms (Extended Day / Forts & Outskirts)'
+                         };
+                         msg = `Namaste Sujata Tours! 🚖\n\nI want to book Jaipur Local City cab:\n• Package: ${pkgNames[this.localPackage]}\n• Vehicle: ${this.activeVehicle.name}\n• Date: ${this.localDate} (${this.localTime})\n• Estimated Fare: ${this.formattedCalculatedFare}\n\nPlease confirm booking schedule.`;
+                     } else if (this.tab === 'airport') {
+                         let dirLabel = (this.airportDirection === 'pickup') ? 'Pickup from Jaipur Airport (JAI)' : 'Drop to Jaipur Airport (JAI)';
+                         let areaNames = {
+                             'city': 'Jaipur City / Railway Station / MI Road / C-Scheme',
+                             'suburb': 'Mansarovar / Vaishali Nagar / Jagatpura / Malviya Nagar',
+                             'outskirts': 'Kukas / Amer Resorts / Chokhi Dhani / Sitapura'
+                         };
+                         msg = `Namaste Sujata Tours! ✈️\n\nI want to book Airport Transfer:\n• Type: ${dirLabel}\n• Area: ${areaNames[this.airportArea]}\n• Vehicle: ${this.activeVehicle.name}\n• Travel Date: ${this.airportDate} (${this.airportTime})\n• Flight No: ${this.flightNumber || 'Will provide upon confirmation'}\n• Fixed Fare: ${this.formattedCalculatedFare}\n\nPlease confirm airport cab allotment.`;
+                     }
+                     return 'https://wa.me/919829012345?text=' + encodeURIComponent(msg);
+                 }
              }">
         
-        <div class="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] border-2 border-white/90 p-5 sm:p-7 backdrop-blur-md">
+        <!-- Anchor tag to support old #quick-booking links -->
+        <a id="quick-booking" class="absolute -top-28"></a>
+
+        <!-- Main Calculator Card -->
+        <div class="bg-white rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.18)] border-2 border-white/90 overflow-hidden backdrop-blur-md">
             
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-border">
-                <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal tracking-tight">
-                        Check Vehicle Availability & Fare Quote
-                    </h3>
+            <!-- Header Strip & Tabs -->
+            <div class="bg-charcoal-dark px-5 sm:px-8 py-5 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-sand-300">
+                            Transparent Transparent Pricing • Instant Dispatch
+                        </span>
+                    </div>
+                    <h2 class="font-serif text-xl sm:text-2xl text-white font-bold tracking-tight">
+                        Interactive Fare & Route Calculator
+                    </h2>
                 </div>
-                <span class="text-[11px] font-bold text-primary uppercase tracking-wider">
-                    ⚡ Instant 10-Minute Allotment
-                </span>
+
+                <!-- Segmented Service Tabs -->
+                <div class="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 self-start md:self-auto">
+                    <button type="button" 
+                            @click="tab = 'outstation'" 
+                            :class="tab === 'outstation' ? 'bg-primary text-white shadow-md' : 'text-sand-300 hover:text-white'"
+                            class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5">
+                        <span>🚕 Outstation Cabs</span>
+                    </button>
+                    <button type="button" 
+                            @click="tab = 'local'" 
+                            :class="tab === 'local' ? 'bg-primary text-white shadow-md' : 'text-sand-300 hover:text-white'"
+                            class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5">
+                        <span>🏙️ Local City Sightseeing</span>
+                    </button>
+                    <button type="button" 
+                            @click="tab = 'airport'" 
+                            :class="tab === 'airport' ? 'bg-primary text-white shadow-md' : 'text-sand-300 hover:text-white'"
+                            class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5">
+                        <span>✈️ Airport Transfer</span>
+                    </button>
+                </div>
             </div>
-            
-            <form @submit.prevent="modalOpen = true" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 items-end">
-                    
-                    <!-- 1. From (Pickup) -->
-                    <div>
-                        <label class="block text-[10px] uppercase font-bold tracking-wider text-charcoal-muted mb-1 flex items-center gap-1">
-                            <svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            <span>From (Pickup)</span>
-                        </label>
-                        <input type="text" 
-                               x-model="pickup" 
-                               placeholder="e.g. Jaipur Airport / City" 
-                               required
-                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+
+            <!-- Body Grid: Left Controls (7 cols) + Right Live Estimate Card (5 cols) -->
+            <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column: Interactive Controls -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <!-- TAB 1: OUTSTATION CONTROLS -->
+                    <div x-show="tab === 'outstation'" class="space-y-5" x-transition>
+                        
+                        <!-- Trip Sub-type Toggle -->
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-charcoal-muted">Trip Type:</span>
+                            <div class="inline-flex rounded-xl bg-sand-200 p-1 border border-border">
+                                <button type="button" 
+                                        @click="tripType = 'one_way'; if(days > 1) days = 1;"
+                                        :class="tripType === 'one_way' ? 'bg-white text-charcoal shadow-sm font-bold' : 'text-charcoal-muted hover:text-charcoal font-medium'"
+                                        class="px-4 py-1.5 rounded-lg text-xs transition-all">
+                                    One-Way Drop
+                                </button>
+                                <button type="button" 
+                                        @click="tripType = 'round_trip'; if(days < 2) days = 2;"
+                                        :class="tripType === 'round_trip' ? 'bg-white text-charcoal shadow-sm font-bold' : 'text-charcoal-muted hover:text-charcoal font-medium'"
+                                        class="px-4 py-1.5 rounded-lg text-xs transition-all">
+                                    Round-Trip / Multi-Day
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Route Selector & Custom Inputs -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1.5 flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    <span>Pickup Location</span>
+                                </label>
+                                <input type="text" 
+                                       x-model="pickup" 
+                                       placeholder="e.g. Jaipur Hotel / Home / Station" 
+                                       class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1.5 flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                                    <span>Popular Destination</span>
+                                </label>
+                                <select x-model="outstationRoute" 
+                                        class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                                    <option value="delhi">Jaipur ➔ Delhi NCR (270 km)</option>
+                                    <option value="agra">Jaipur ➔ Agra Taj Mahal (240 km)</option>
+                                    <option value="khatu">Jaipur ➔ Khatu Shyam Ji & Salasar (180 km)</option>
+                                    <option value="pushkar">Jaipur ➔ Ajmer & Pushkar (145 km)</option>
+                                    <option value="udaipur">Jaipur ➔ Udaipur City of Lakes (395 km)</option>
+                                    <option value="jodhpur">Jaipur ➔ Jodhpur Sun City (335 km)</option>
+                                    <option value="jaisalmer">Jaipur ➔ Jaisalmer Sand Dunes (570 km)</option>
+                                    <option value="ranthambore">Jaipur ➔ Ranthambore Tiger Safari (165 km)</option>
+                                    <option value="bikaner">Jaipur ➔ Bikaner (335 km)</option>
+                                    <option value="mount_abu">Jaipur ➔ Mount Abu (495 km)</option>
+                                    <option value="custom">✍️ Custom Destination (Enter KMs)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Custom Destination / KMs if selected -->
+                        <div x-show="outstationRoute === 'custom'" class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-sand-100 border border-border">
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-charcoal-muted mb-1">Enter Destination City</label>
+                                <input type="text" x-model="customDestination" placeholder="e.g. Haridwar, Chandigarh, Kota" class="w-full text-xs font-semibold bg-white border border-border rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-charcoal-muted mb-1">Approx One-Way Distance (KM)</label>
+                                <input type="number" x-model="customKm" min="50" max="3000" class="w-full text-xs font-semibold bg-white border border-border rounded-lg px-3 py-2">
+                            </div>
+                        </div>
+
+                        <!-- Date, Time & Number of Days -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Travel Date</label>
+                                <input type="date" x-model="travelDate" min="{{ date('Y-m-d') }}" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Pickup Time</label>
+                                <input type="text" x-model="pickupTime" placeholder="e.g. 06:00 AM" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3 py-2">
+                            </div>
+                            <div x-show="tripType === 'round_trip'">
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Duration (Days)</label>
+                                <select x-model="days" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3 py-2">
+                                    <option value="1">1 Day</option>
+                                    <option value="2">2 Days / 1 Night</option>
+                                    <option value="3">3 Days / 2 Nights</option>
+                                    <option value="4">4 Days / 3 Nights</option>
+                                    <option value="5">5 Days / 4 Nights</option>
+                                    <option value="7">7 Days Road Trip</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- 2. To (Drop) -->
-                    <div>
-                        <label class="block text-[10px] uppercase font-bold tracking-wider text-charcoal-muted mb-1 flex items-center gap-1">
-                            <svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                            <span>To (Drop / Destination)</span>
-                        </label>
-                        <input type="text" 
-                               x-model="drop" 
-                               placeholder="e.g. Delhi, Udaipur, Local" 
-                               required
-                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                    <!-- TAB 2: LOCAL SIGHTSEEING CONTROLS -->
+                    <div x-show="tab === 'local'" class="space-y-5" x-transition>
+                        <span class="text-xs font-bold uppercase tracking-wider text-charcoal-muted block">Select City Package:</span>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <!-- 4h/40k -->
+                            <button type="button" 
+                                    @click="localPackage = '4h_40k'"
+                                    :class="localPackage === '4h_40k' ? 'border-primary ring-2 ring-primary/20 bg-primary-50/40' : 'border-border bg-white hover:border-charcoal-subtle'"
+                                    class="p-4 rounded-2xl border text-left transition-all">
+                                <span class="block text-xs font-bold text-charcoal mb-1">4 Hrs / 40 Kms</span>
+                                <span class="block text-[11px] text-charcoal-muted leading-tight mb-2">Half Day • Shopping & Business Meetings</span>
+                                <span class="text-xs font-extrabold text-primary" x-text="'From ₹' + activeVehicle.localRates['4h_40k'].toLocaleString('en-IN')"></span>
+                            </button>
+
+                            <!-- 8h/80k -->
+                            <button type="button" 
+                                    @click="localPackage = '8h_80k'"
+                                    :class="localPackage === '8h_80k' ? 'border-primary ring-2 ring-primary/20 bg-primary-50/40' : 'border-border bg-white hover:border-charcoal-subtle'"
+                                    class="p-4 rounded-2xl border text-left transition-all relative">
+                                <span class="absolute -top-2.5 right-3 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Most Popular</span>
+                                <span class="block text-xs font-bold text-charcoal mb-1">8 Hrs / 80 Kms</span>
+                                <span class="block text-[11px] text-charcoal-muted leading-tight mb-2">Full Day • Amer, Hawa Mahal, City Palace</span>
+                                <span class="text-xs font-extrabold text-primary" x-text="'From ₹' + activeVehicle.localRates['8h_80k'].toLocaleString('en-IN')"></span>
+                            </button>
+
+                            <!-- 12h/120k -->
+                            <button type="button" 
+                                    @click="localPackage = '12h_120k'"
+                                    :class="localPackage === '12h_120k' ? 'border-primary ring-2 ring-primary/20 bg-primary-50/40' : 'border-border bg-white hover:border-charcoal-subtle'"
+                                    class="p-4 rounded-2xl border text-left transition-all">
+                                <span class="block text-xs font-bold text-charcoal mb-1">12 Hrs / 120 Kms</span>
+                                <span class="block text-[11px] text-charcoal-muted leading-tight mb-2">Extended Day • Forts + Chokhi Dhani</span>
+                                <span class="text-xs font-extrabold text-primary" x-text="'From ₹' + activeVehicle.localRates['12h_120k'].toLocaleString('en-IN')"></span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Sightseeing Date</label>
+                                <input type="date" x-model="localDate" min="{{ date('Y-m-d') }}" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Hotel / Pickup Point in Jaipur</label>
+                                <input type="text" x-model="pickup" placeholder="e.g. Hotel in Bani Park / C-Scheme" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-sand-100 rounded-xl text-[11px] text-charcoal-muted flex items-center justify-between">
+                            <span>Extra KM rate: <strong class="text-charcoal" x-text="'₹' + activeVehicle.localRates.extraKm + '/km'"></strong></span>
+                            <span>Extra Hour rate: <strong class="text-charcoal" x-text="'₹' + activeVehicle.localRates.extraHr + '/hr'"></strong></span>
+                            <span>Toll & Parking: <strong class="text-charcoal">At actuals</strong></span>
+                        </div>
                     </div>
 
-                    <!-- 3. Travel Date -->
-                    <div>
-                        <label class="block text-[10px] uppercase font-bold tracking-wider text-charcoal-muted mb-1 flex items-center gap-1">
-                            <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            <span>Travel Date</span>
-                        </label>
-                        <input type="date" 
-                               x-model="travelDate" 
-                               required
-                               min="{{ date('Y-m-d') }}"
-                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                    <!-- TAB 3: AIRPORT TRANSFER CONTROLS -->
+                    <div x-show="tab === 'airport'" class="space-y-5" x-transition>
+                        
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-charcoal-muted">Transfer Type:</span>
+                            <div class="inline-flex rounded-xl bg-sand-200 p-1 border border-border">
+                                <button type="button" 
+                                        @click="airportDirection = 'pickup'"
+                                        :class="airportDirection === 'pickup' ? 'bg-white text-charcoal shadow-sm font-bold' : 'text-charcoal-muted hover:text-charcoal font-medium'"
+                                        class="px-4 py-1.5 rounded-lg text-xs transition-all">
+                                    🛬 Airport Pickup (To City)
+                                </button>
+                                <button type="button" 
+                                        @click="airportDirection = 'drop'"
+                                        :class="airportDirection === 'drop' ? 'bg-white text-charcoal shadow-sm font-bold' : 'text-charcoal-muted hover:text-charcoal font-medium'"
+                                        class="px-4 py-1.5 rounded-lg text-xs transition-all">
+                                    🛫 Airport Drop (From City)
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1.5">City Zone / Destination Area</label>
+                                <select x-model="airportArea" class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                                    <option value="city">Central Jaipur (Railway Station, MI Road, C-Scheme, Civil Lines)</option>
+                                    <option value="suburb">Suburbs (Mansarovar, Vaishali Nagar, Malviya Nagar, Jagatpura)</option>
+                                    <option value="outskirts">Outskirts (Kukas, Amer Resorts, Chokhi Dhani, Sitapura)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1.5">Flight Number (Optional)</label>
+                                <input type="text" x-model="flightNumber" placeholder="e.g. 6E-204 / AI-492" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Transfer Date</label>
+                                <input type="date" x-model="airportDate" min="{{ date('Y-m-d') }}" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">Landing / Pickup Time</label>
+                                <input type="text" x-model="airportTime" placeholder="e.g. 10:30 AM" class="w-full text-xs font-semibold bg-sand-100 border border-border rounded-xl px-3.5 py-2.5">
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-emerald-50 rounded-xl text-xs text-emerald-800 flex items-center gap-2 border border-emerald-200">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Guaranteed Punctual Driver • Placard Welcome at Jaipur Airport Terminal</span>
+                        </div>
                     </div>
 
-                    <!-- 4. Vehicle Type -->
-                    <div>
-                        <label class="block text-[10px] uppercase font-bold tracking-wider text-charcoal-muted mb-1">
-                            Vehicle Category
+                    <!-- COMMON VEHICLE SELECTOR CHIPS (Across all tabs) -->
+                    <div class="pt-4 border-t border-border">
+                        <label class="block text-[11px] uppercase font-bold tracking-wider text-charcoal-muted mb-2.5 flex items-center justify-between">
+                            <span>Select Your Fleet Vehicle:</span>
+                            <span class="text-primary font-semibold" x-text="activeVehicle.name + ' (' + activeVehicle.seats + ' Seats)'"></span>
                         </label>
-                        <select x-model="vehicleType"
-                                class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
-                            <option value="Car Rental">Cars & SUVs (4–7 Seats)</option>
-                            <option value="Tempo Traveller">Tempo Traveller (12–26 Seats)</option>
-                            <option value="Bus Rental">Tourist Bus (21–45 Seats)</option>
-                        </select>
-                    </div>
 
-                    <!-- 5. CTA Button -->
-                    <div>
-                        <button type="submit" 
-                                class="w-full btn-primary py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm flex items-center justify-center gap-2">
-                            <span>Check Availability</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </button>
+                        <!-- Responsive Vehicle Chips Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <template x-for="(veh, key) in vehicles" :key="key">
+                                <button type="button" 
+                                        @click="selectedVehicle = key"
+                                        :class="selectedVehicle === key ? 'border-primary ring-2 ring-primary/20 bg-primary-50/50 shadow-sm' : 'border-border bg-white hover:border-charcoal-subtle'"
+                                        class="p-2.5 rounded-xl border text-left transition-all duration-200 relative">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-base" x-text="veh.icon"></span>
+                                        <span class="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-sand-200 text-charcoal" x-text="'₹' + veh.rate + '/km'"></span>
+                                    </div>
+                                    <span class="block text-xs font-bold text-charcoal truncate" x-text="veh.name"></span>
+                                    <span class="block text-[10px] text-charcoal-muted" x-text="veh.seats + ' Seats • ' + veh.luggage"></span>
+                                </button>
+                            </template>
+                        </div>
                     </div>
 
                 </div>
-            </form>
+
+                <!-- Right Column: Live Calculated Fare Card (High Conversion Box) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-sand-100 via-sand-50 to-white rounded-2xl border-2 border-primary/20 p-6 sm:p-7 shadow-float space-y-5">
+                    
+                    <div class="flex items-center justify-between pb-3 border-b border-border">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-primary flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                            Live Estimated Quote
+                        </span>
+                        <span class="text-[11px] font-bold text-charcoal-muted" x-text="activeVehicle.tag"></span>
+                    </div>
+
+                    <!-- Big Price Display -->
+                    <div class="space-y-1">
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-charcoal tracking-tight" x-text="formattedCalculatedFare"></span>
+                            <span class="text-xs text-charcoal-muted uppercase tracking-wider font-semibold">Total Estimate</span>
+                        </div>
+                        <p class="text-[11px] text-emerald-700 font-medium">
+                            ✓ Best Guaranteed Rajasthan Commercial Fleet Rate
+                        </p>
+                    </div>
+
+                    <!-- Breakdown Box -->
+                    <div class="bg-white rounded-xl p-4 border border-border text-xs space-y-2.5 shadow-sm">
+                        
+                        <div class="flex justify-between items-center text-charcoal-muted">
+                            <span>Selected Vehicle:</span>
+                            <strong class="text-charcoal" x-text="activeVehicle.name"></strong>
+                        </div>
+
+                        <!-- Outstation Breakdown -->
+                        <template x-if="tab === 'outstation'">
+                            <div class="space-y-2 border-t border-border/60 pt-2 text-charcoal-muted">
+                                <div class="flex justify-between items-center">
+                                    <span>Route Corridor:</span>
+                                    <strong class="text-charcoal truncate max-w-[200px]" x-text="activeRoute.destination"></strong>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Estimated Distance:</span>
+                                    <span class="font-semibold text-charcoal" x-text="calculatedOutstationDistance + ' KM (' + activeRoute.time + ')'"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Base Rate:</span>
+                                    <span class="font-semibold text-charcoal" x-text="'₹' + activeVehicle.rate + ' / KM'"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Driver Allowance:</span>
+                                    <span class="font-semibold text-charcoal" x-text="'₹' + activeVehicle.driverAllowance + ' × ' + ((tripType === 'one_way') ? 1 : days) + ' Day(s)'"></span>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Local Breakdown -->
+                        <template x-if="tab === 'local'">
+                            <div class="space-y-2 border-t border-border/60 pt-2 text-charcoal-muted">
+                                <div class="flex justify-between items-center">
+                                    <span>Package Type:</span>
+                                    <strong class="text-charcoal" x-text="localPackage.replace('_', ' ').toUpperCase()"></strong>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Included:</span>
+                                    <span class="font-semibold text-charcoal">Clean AC Vehicle + Chauffeur</span>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Airport Breakdown -->
+                        <template x-if="tab === 'airport'">
+                            <div class="space-y-2 border-t border-border/60 pt-2 text-charcoal-muted">
+                                <div class="flex justify-between items-center">
+                                    <span>Transfer Direction:</span>
+                                    <strong class="text-charcoal" x-text="airportDirection === 'pickup' ? 'Airport ➔ City' : 'City ➔ Airport'"></strong>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Included:</span>
+                                    <span class="font-semibold text-charcoal">Terminal Placard + Airport Parking</span>
+                                </div>
+                            </div>
+                        </template>
+
+                        <div class="pt-2 border-t border-border text-[10px] text-charcoal-subtle space-y-1">
+                            <p>• <strong>Included:</strong> Vehicle rental, fuel charges, experienced commercial chauffeur.</p>
+                            <p>• <strong>Excluded:</strong> Toll tax, state permit, parking fees (payable directly as per actual receipts).</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2.5 pt-1">
+                        
+                        <!-- 1. Book on WhatsApp (Primary Conversion) -->
+                        <a :href="whatsappUrl" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            <span>Book via WhatsApp Quote</span>
+                        </a>
+
+                        <!-- 2. Reserve Online Form Modal Trigger -->
+                        <button type="button" 
+                                @click="modalOpen = true"
+                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all duration-200">
+                            <span>Reserve Online (No Payment Needed)</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+
+                    </div>
+
+                    <!-- Immediate Call Help -->
+                    <div class="text-center pt-2">
+                        <span class="text-[11px] text-charcoal-muted">Need instant assistance?</span>
+                        <a href="tel:+919829012345" class="text-xs font-bold text-charcoal hover:text-primary ml-1 inline-flex items-center gap-1">
+                            <span>📞 098290 12345</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
         <!-- Sleek Slide-over / Modal for Finalizing Details and Submitting to Laravel Backend -->
         <div x-show="modalOpen" 
              x-cloak
-             class="fixed inset-0 z-50 overflow-y-auto bg-charcoal-dark/70 backdrop-blur-sm flex items-center justify-center p-4"
+             class="fixed inset-0 z-50 overflow-y-auto bg-charcoal-dark/75 backdrop-blur-sm flex items-center justify-center p-4"
              x-transition:enter="transition ease-out duration-200"
              x-transition:enter-start="opacity-0 scale-95"
              x-transition:enter-end="opacity-100 scale-100"
@@ -420,7 +904,7 @@
              x-transition:leave-start="opacity-100 scale-100"
              x-transition:leave-end="opacity-0 scale-95">
             
-            <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-card border border-border relative text-left"
+            <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-card border border-border relative text-left"
                  @click.away="modalOpen = false">
                 
                 <button @click="modalOpen = false" 
@@ -430,50 +914,68 @@
 
                 <div class="mb-5 pb-4 border-b border-border">
                     <div class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider text-primary mb-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        Direct Booking Desk
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        Quick Reservation Desk
                     </div>
                     <h3 class="font-serif text-2xl font-bold text-charcoal">
-                        Confirm Journey Availability
+                        Confirm Vehicle Reservation
                     </h3>
-                    <p class="text-xs text-charcoal-muted mt-1">
-                        Route: <strong class="text-charcoal" x-text="pickup"></strong> to <strong class="text-charcoal" x-text="drop || 'Local Sightseeing'"></strong> on <strong class="text-charcoal" x-text="travelDate"></strong>
-                    </p>
+                    
+                    <!-- Pre-calculated summary badge inside modal -->
+                    <div class="mt-3 p-3 bg-sand-100 rounded-xl text-xs space-y-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-charcoal-muted">Vehicle:</span>
+                            <strong class="text-charcoal" x-text="activeVehicle.name"></strong>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-charcoal-muted">Estimated Fare:</span>
+                            <strong class="text-emerald-700 text-sm font-bold" x-text="formattedCalculatedFare"></strong>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-charcoal-muted">Schedule:</span>
+                            <span class="text-charcoal font-medium" x-text="(tab === 'outstation' ? travelDate : (tab === 'local' ? localDate : airportDate)) + ' (' + (tab === 'outstation' ? pickupTime : (tab === 'local' ? localTime : airportTime)) + ')'"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Form submitting directly to Laravel backend route('booking.store') -->
                 <form action="{{ route('booking.store') }}" method="POST" class="space-y-4">
                     @csrf
                     
-                    <!-- Hidden synced fields from the floating bar -->
-                    <input type="hidden" name="pickup_location" :value="pickup">
-                    <input type="hidden" name="drop_location" :value="drop || 'Local Running'">
-                    <input type="hidden" name="travel_date" :value="travelDate">
-                    <input type="hidden" name="vehicle_type" :value="vehicleType">
-                    <input type="hidden" name="passenger_count" :value="passengers">
-                    <input type="hidden" name="trip_type" value="Outstation">
+                    <!-- Hidden synced fields from the calculator -->
+                    <input type="hidden" name="pickup_location" :value="pickup || 'Jaipur City'">
+                    <input type="hidden" name="drop_location" :value="tab === 'outstation' ? activeRoute.destination : (tab === 'local' ? ('Jaipur Local ' + localPackage) : ('Jaipur Airport ' + airportArea))">
+                    <input type="hidden" name="travel_date" :value="tab === 'outstation' ? travelDate : (tab === 'local' ? localDate : airportDate)">
+                    <input type="hidden" name="pickup_time" :value="tab === 'outstation' ? pickupTime : (tab === 'local' ? localTime : airportTime)">
+                    <input type="hidden" name="vehicle_type" :value="activeVehicle.category">
+                    <input type="hidden" name="specific_vehicle" :value="activeVehicle.name">
+                    <input type="hidden" name="passenger_count" :value="activeVehicle.seats">
+                    <input type="hidden" name="trip_type" :value="tab === 'outstation' ? (tripType === 'one_way' ? 'Outstation One-Way' : 'Outstation Round-Trip') : (tab === 'local' ? 'Local Rental' : 'Airport Transfer')">
+                    
+                    <!-- Auto-embed estimated fare into additional_requirements -->
+                    <input type="hidden" name="additional_requirements" :value="'Calculated Estimate: ' + formattedCalculatedFare + ' | Tab: ' + tab + ' | Details: ' + (tab === 'outstation' ? (calculatedOutstationDistance + ' KM, ' + days + ' Days') : (tab === 'local' ? localPackage : (airportDirection + ' - ' + airportArea + ' ' + flightNumber)))">
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
-                            Your Name <span class="text-primary">*</span>
+                            Your Full Name <span class="text-primary">*</span>
                         </label>
                         <input type="text" 
                                name="customer_name" 
                                required 
                                placeholder="e.g. Ramesh Sharma" 
-                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
-                                Mobile Number <span class="text-primary">*</span>
+                                WhatsApp / Mobile Number <span class="text-primary">*</span>
                             </label>
                             <input type="tel" 
                                    name="customer_phone" 
                                    required 
                                    placeholder="+91 98290 12345" 
-                                   class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                                   class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
@@ -482,55 +984,17 @@
                             <input type="email" 
                                    name="customer_email" 
                                    placeholder="name@example.com" 
-                                   class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
+                                   class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-xl px-3.5 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
-                                Passengers
-                            </label>
-                            <select name="passenger_count" 
-                                    x-model="passengers"
-                                    class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
-                                <option value="2">1–2 Passengers</option>
-                                <option value="4">3–4 Passengers</option>
-                                <option value="6">5–6 Passengers</option>
-                                <option value="12">7–12 Passengers</option>
-                                <option value="17">13–17 Passengers</option>
-                                <option value="26">18–26 Passengers</option>
-                                <option value="45">27+ Passengers (Bus)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
-                                Pickup Time
-                            </label>
-                            <input type="text" 
-                                   name="pickup_time" 
-                                   placeholder="e.g. 06:00 AM" 
-                                   class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-muted mb-1">
-                            Trip Notes / Vehicle Preference <span class="text-charcoal-subtle font-normal">(Optional)</span>
-                        </label>
-                        <input type="text" 
-                               name="additional_requirements" 
-                               placeholder="e.g. Innova Crysta required, airport pickup flight 6E-204" 
-                               class="w-full text-xs font-semibold text-charcoal bg-sand-100 border border-border rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary focus:border-primary">
                     </div>
 
                     <div class="pt-2">
                         <button type="submit" 
-                                class="w-full btn-primary py-3 rounded-lg text-xs font-bold uppercase tracking-wider shadow-md">
-                            Submit & Check Availability
+                                class="w-full btn-primary py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-md active:scale-95 transition-all">
+                            Confirm Booking Inquiry
                         </button>
                         <p class="text-[10px] text-center text-charcoal-muted mt-2">
-                            No immediate payment required. Our dispatch team will confirm vehicle allotment promptly.
+                            ✓ No advance payment required online. Our Jaipur central dispatch team will call you within 10 minutes to verify.
                         </p>
                     </div>
                 </form>
@@ -543,11 +1007,11 @@
     <!-- =========================================================================
          3. INTRO / BRAND EDITORIAL SECTION (Asymmetrical Editorial Split)
          ========================================================================= -->
-    <section class="py-24 lg:py-32 bg-ivory">
+    <section class="pt-6 pb-20 sm:pt-10 sm:pb-24 lg:pt-12 lg:pb-28 bg-ivory">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
-                <!-- Left: Editorial Large Photography & Composition -->
+                <!-- Left: Editorial Large Photography and Composition -->
                 <div class="lg:col-span-6 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-card border border-border/80 aspect-[4/3] sm:aspect-[16/11]">
                         <img src="{{ asset('images/fleet/jaipur-pink-city-hero.jpg') }}" 
@@ -563,7 +1027,7 @@
                         </div>
                         <div>
                             <span class="block text-xs font-bold text-charcoal uppercase tracking-wider">Years of Highway Trust</span>
-                            <span class="text-[11px] text-charcoal-muted">Chauffeur-driven mobility across Rajasthan & North India</span>
+                            <span class="text-[11px] text-charcoal-muted">Chauffeur-driven mobility across Rajasthan and North India</span>
                         </div>
                     </div>
                 </div>
@@ -639,7 +1103,7 @@
                     </div>
                     <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Sedans & Premium SUVs</span>
+                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Sedans and Premium SUVs</span>
                             <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Car Rental</h3>
                             <p class="text-xs text-charcoal-muted leading-relaxed font-light mb-4">
                                 Chauffeur-driven Swift Dzire, Toyota Innova Crysta, and Fortuner for local Jaipur running, airport pickups, and outstation Rajasthan trips.
@@ -667,7 +1131,7 @@
                     </div>
                     <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Pushback & Maharaja</span>
+                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Pushback and Maharaja</span>
                             <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Tempo Travellers</h3>
                             <p class="text-xs text-charcoal-muted leading-relaxed font-light mb-4">
                                 Spacious 12, 17, and 26-seater Force Urbania and Maharaja tempo travellers equipped with reclining seats and generous luggage boot space.
@@ -695,7 +1159,7 @@
                     </div>
                     <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Mini & Luxury Coaches</span>
+                            <span class="block text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Mini and Luxury Coaches</span>
                             <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Bus Rental</h3>
                             <p class="text-xs text-charcoal-muted leading-relaxed font-light mb-4">
                                 Reliable 21-seater mini buses and 45-seater luxury multi-axle coaches for marriage groups, corporate delegations, and large tour parties.
@@ -729,7 +1193,7 @@
     }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Section Header & Controls -->
+            <!-- Section Header and Controls -->
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
                 <div>
                     <span class="block text-[11px] uppercase tracking-[0.25em] font-bold text-primary mb-2">
@@ -740,7 +1204,7 @@
                     </h2>
                 </div>
 
-                <!-- Carousel Controls & View All -->
+                <!-- Carousel Controls and View All -->
                 <div class="flex items-center gap-4">
                     <a href="{{ route('vehicles.index') }}" 
                        class="hidden sm:inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold text-charcoal hover:text-primary transition-colors">
@@ -794,7 +1258,7 @@
                                         <span>{{ $vehicle->seating_capacity }} Seater</span>
                                     </div>
                                     <div class="flex items-center gap-1.5">
-                                        <svg class="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                         <span>{{ $vehicle->ac_type }}</span>
                                     </div>
                                     <div class="flex items-center gap-1.5">
@@ -847,6 +1311,295 @@
     </section>
 
     <!-- =========================================================================
+         5B. SIGNATURE RAJASTHAN TOUR PACKAGES & SIGHTSEEING CIRCUITS
+         ========================================================================= -->
+    <section class="py-24 bg-surface-sand border-b border-border/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        <span>Curated Holiday Circuits • Private Chauffeur Fleet</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal font-normal tracking-tight">
+                        Popular Rajasthan Tour Packages
+                    </h2>
+                    <p class="text-xs sm:text-sm text-charcoal-muted mt-2 max-w-2xl font-light">
+                        Fixed-price private vehicle tours with verified highway drivers, doorstep hotel pickup, flexible stops, and transparent pricing.
+                    </p>
+                </div>
+
+                <a href="https://wa.me/919829012345?text=Namaste%20Sujata%20Tours!%20I%20want%20to%20customize%20a%20Rajasthan%20Tour%20Package." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-primary hover:text-primary-hover transition-colors group self-start sm:self-auto">
+                    <span>Customize Your Itinerary</span>
+                    <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <!-- Tour Packages Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Package 1: Jaipur Local Heritage -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative aspect-[16/11] overflow-hidden bg-sand-200">
+                            <img src="{{ asset('images/banners/banner-1-jaipur.jpg') }}" 
+                                 alt="Jaipur Royal Heritage Tour" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute top-3.5 left-3.5 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                                1 Day (8-10 Hrs)
+                            </div>
+                            <div class="absolute bottom-3 left-3.5 text-white">
+                                <span class="text-[10px] text-sand-300 uppercase tracking-wider block font-semibold">City Circuit</span>
+                                <h3 class="font-serif text-lg font-bold">Jaipur Royal Heritage</h3>
+                            </div>
+                        </div>
+
+                        <div class="p-5 space-y-3.5 text-left">
+                            <div class="text-[11px] text-charcoal-muted leading-relaxed space-y-1.5 border-b border-border pb-3">
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Amber Fort, Jal Mahal, Hawa Mahal</span>
+                                </p>
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>City Palace, Jantar Mantar, Nahargarh</span>
+                                </p>
+                            </div>
+
+                            <ul class="text-[11px] text-charcoal space-y-1">
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Hotel / Railway Station Pickup</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Clean Chilled AC Vehicle</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Local Sightseeing Driver Guide</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-0 border-t border-border/70 mt-2">
+                        <div class="flex items-baseline justify-between mb-3 pt-3">
+                            <span class="text-[10px] uppercase font-bold text-charcoal-muted tracking-wider">Starts From</span>
+                            <div class="text-right">
+                                <span class="font-serif text-xl font-black text-primary">₹2,200</span>
+                                <span class="text-[10px] text-charcoal-muted block">per sedan car</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/919829012345?text=Namaste%20Sujata%20Tours!%20Mujhe%20Jaipur%20Royal%20Heritage%201-Day%20Tour%20package%20book%20karna%20hai." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-charcoal hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all duration-200">
+                            <span>Book on WhatsApp</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 2: Khatu Shyam Ji & Salasar Balaji -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between relative">
+                    <span class="absolute top-3.5 right-3.5 z-20 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow">
+                        Spiritual Special
+                    </span>
+                    <div>
+                        <div class="relative aspect-[16/11] overflow-hidden bg-sand-200">
+                            <img src="{{ asset('images/banners/banner-2-highway.jpg') }}" 
+                                 alt="Khatu Shyam Ji and Salasar Balaji Yatra" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute top-3.5 left-3.5 bg-black/60 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full backdrop-blur-md">
+                                Same-Day Tour
+                            </div>
+                            <div class="absolute bottom-3 left-3.5 text-white">
+                                <span class="text-[10px] text-sand-300 uppercase tracking-wider block font-semibold">Devotional Circuit</span>
+                                <h3 class="font-serif text-lg font-bold">Khatu Shyam & Salasar</h3>
+                            </div>
+                        </div>
+
+                        <div class="p-5 space-y-3.5 text-left">
+                            <div class="text-[11px] text-charcoal-muted leading-relaxed space-y-1.5 border-b border-border pb-3">
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Jaipur ➔ Ringas ➔ Khatu Shyam Ji</span>
+                                </p>
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Salasar Balaji ➔ Jaipur Return</span>
+                                </p>
+                            </div>
+
+                            <ul class="text-[11px] text-charcoal space-y-1">
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Early Morning 05:00 AM Departure</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Elder-Friendly Comfortable Ride</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Temple Wait Time Included</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-0 border-t border-border/70 mt-2">
+                        <div class="flex items-baseline justify-between mb-3 pt-3">
+                            <span class="text-[10px] uppercase font-bold text-charcoal-muted tracking-wider">Starts From</span>
+                            <div class="text-right">
+                                <span class="font-serif text-xl font-black text-primary">₹3,800</span>
+                                <span class="text-[10px] text-charcoal-muted block">round-trip cab</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/919829012345?text=Namaste%20Sujata%20Tours!%20Mujhe%20Khatu%20Shyam%20Ji%20aur%20Salasar%20Balaji%20same-day%20tour%20package%20book%20karna%20hai." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-charcoal hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all duration-200">
+                            <span>Book on WhatsApp</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 3: Golden Triangle Odyssey -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative aspect-[16/11] overflow-hidden bg-sand-200">
+                            <img src="{{ asset('images/fleet/intercity-highway-hero.jpg') }}" 
+                                 alt="Golden Triangle India Tour" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute top-3.5 left-3.5 bg-charcoal-dark/90 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                                4 Days / 3 Nights
+                            </div>
+                            <div class="absolute bottom-3 left-3.5 text-white">
+                                <span class="text-[10px] text-sand-300 uppercase tracking-wider block font-semibold">Flagship India Tour</span>
+                                <h3 class="font-serif text-lg font-bold">Golden Triangle Classic</h3>
+                            </div>
+                        </div>
+
+                        <div class="p-5 space-y-3.5 text-left">
+                            <div class="text-[11px] text-charcoal-muted leading-relaxed space-y-1.5 border-b border-border pb-3">
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Delhi ➔ Agra (Taj Mahal, Agra Fort)</span>
+                                </p>
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Fatehpur Sikri ➔ Jaipur (Pink City)</span>
+                                </p>
+                            </div>
+
+                            <ul class="text-[11px] text-charcoal space-y-1">
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Dedicated Chauffeur for 4 Days</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>All Intercity Highway Driving</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Delhi Airport / Hotel Drop Included</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-0 border-t border-border/70 mt-2">
+                        <div class="flex items-baseline justify-between mb-3 pt-3">
+                            <span class="text-[10px] uppercase font-bold text-charcoal-muted tracking-wider">Starts From</span>
+                            <div class="text-right">
+                                <span class="font-serif text-xl font-black text-primary">₹13,500</span>
+                                <span class="text-[10px] text-charcoal-muted block">4 days sedan car</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/919829012345?text=Namaste%20Sujata%20Tours!%20Mujhe%20Golden%20Triangle%20(Delhi-Agra-Jaipur%204D/3N)%20package%20book%20karna%20hai." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-charcoal hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all duration-200">
+                            <span>Book on WhatsApp</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 4: Royal Rajasthan Circuit -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative aspect-[16/11] overflow-hidden bg-sand-200">
+                            <img src="{{ asset('images/fleet/jaipur-pink-city-hero.jpg') }}" 
+                                 alt="Royal Rajasthan Heritage Circuit" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute top-3.5 left-3.5 bg-navy-900 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                                5 Days / 4 Nights
+                            </div>
+                            <div class="absolute bottom-3 left-3.5 text-white">
+                                <span class="text-[10px] text-sand-300 uppercase tracking-wider block font-semibold">Grand Heritage</span>
+                                <h3 class="font-serif text-lg font-bold">Royal Rajasthan Circuit</h3>
+                            </div>
+                        </div>
+
+                        <div class="p-5 space-y-3.5 text-left">
+                            <div class="text-[11px] text-charcoal-muted leading-relaxed space-y-1.5 border-b border-border pb-3">
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Jaipur ➔ Ajmer / Pushkar ➔ Jodhpur</span>
+                                </p>
+                                <p class="flex items-center gap-1.5">
+                                    <span class="text-primary font-bold">📍</span>
+                                    <span>Ranakpur Temples ➔ Udaipur Lake Pichola</span>
+                                </p>
+                            </div>
+
+                            <ul class="text-[11px] text-charcoal space-y-1">
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Forts, Palaces & Desert Ghats</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Toyota Innova Crysta / Ertiga Choice</span>
+                                </li>
+                                <li class="flex items-center gap-1.5 text-emerald-700 font-medium">
+                                    <span>✓</span> <span>Rajasthan Highway Mastery Driver</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-0 border-t border-border/70 mt-2">
+                        <div class="flex items-baseline justify-between mb-3 pt-3">
+                            <span class="text-[10px] uppercase font-bold text-charcoal-muted tracking-wider">Starts From</span>
+                            <div class="text-right">
+                                <span class="font-serif text-xl font-black text-primary">₹21,500</span>
+                                <span class="text-[10px] text-charcoal-muted block">5 days Ertiga/SUV</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/919829012345?text=Namaste%20Sujata%20Tours!%20Mujhe%20Royal%20Rajasthan%20Circuit%20(Jaipur-Jodhpur-Udaipur%205D/4N)%20package%20book%20karna%20hai." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-charcoal hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all duration-200">
+                            <span>Book on WhatsApp</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
          6. JAIPUR / HERITAGE BRAND MOMENT (Single Cinematic Visual Section)
          ========================================================================= -->
     <section class="relative py-28 lg:py-36 bg-charcoal-dark overflow-hidden">
@@ -862,7 +1615,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-2xl space-y-6 text-left">
                 
-                <span class="inline-block text-[11px] uppercase tracking-[0.25em] font-bold text-gold">
+                <span class="inline-block text-[11px] uppercase tracking-[0.25em] font-bold text-primary">
                     ROYAL HERITAGE • MODERN RELIABILITY
                 </span>
 
@@ -878,19 +1631,19 @@
                 <!-- Minimalist Metrics Strip -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/10 text-white">
                     <div>
-                        <span class="font-serif text-3xl font-bold text-gold block">15+</span>
+                        <span class="font-serif text-3xl font-bold text-white block">15+</span>
                         <span class="text-[10px] text-sand-400 uppercase tracking-wider">Years Experience</span>
                     </div>
                     <div>
-                        <span class="font-serif text-3xl font-bold text-gold block">65+</span>
+                        <span class="font-serif text-3xl font-bold text-white block">65+</span>
                         <span class="text-[10px] text-sand-400 uppercase tracking-wider">Fleet Strength</span>
                     </div>
                     <div>
-                        <span class="font-serif text-3xl font-bold text-gold block">42k+</span>
+                        <span class="font-serif text-3xl font-bold text-white block">42k+</span>
                         <span class="text-[10px] text-sand-400 uppercase tracking-wider">Trips Completed</span>
                     </div>
                     <div>
-                        <span class="font-serif text-3xl font-bold text-gold block">24/7</span>
+                        <span class="font-serif text-3xl font-bold text-white block">24/7</span>
                         <span class="text-[10px] text-sand-400 uppercase tracking-wider">Dispatch Helpline</span>
                     </div>
                 </div>
@@ -907,7 +1660,7 @@
             
             <div class="max-w-3xl mb-12">
                 <span class="block text-[11px] uppercase tracking-[0.25em] font-bold text-primary mb-2">
-                    NORTH INDIA & RAJASTHAN CORRIDORS
+                    NORTH INDIA AND RAJASTHAN CORRIDORS
                 </span>
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal font-normal tracking-tight mb-4">
                     Wherever You're Headed
@@ -921,13 +1674,13 @@
             <div class="flex flex-wrap gap-3 sm:gap-4 mb-10">
                 @php
                     $destinations = [
-                        ['name' => 'Jaipur Hub', 'url' => url('/car-rental-jaipur'), 'type' => 'Local & Airport'],
+                        ['name' => 'Jaipur Hub', 'url' => url('/car-rental-jaipur'), 'type' => 'Local and Airport'],
                         ['name' => 'Delhi NCR', 'url' => url('/jaipur-to-delhi-taxi'), 'type' => 'Expressway Transfer'],
                         ['name' => 'Agra', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Golden Triangle'],
                         ['name' => 'Jodhpur', 'url' => url('/jaipur-to-jodhpur-taxi'), 'type' => 'Sun City Express'],
                         ['name' => 'Udaipur', 'url' => url('/jaipur-to-udaipur-taxi'), 'type' => 'Lake City Route'],
                         ['name' => 'Jaisalmer', 'url' => url('/jaipur-to-jaisalmer-taxi'), 'type' => 'Thar Desert Circuit'],
-                        ['name' => 'Ajmer & Pushkar', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Day Pilgrimage'],
+                        ['name' => 'Ajmer and Pushkar', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Day Pilgrimage'],
                         ['name' => 'Bikaner', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Heritage Corridor'],
                         ['name' => 'Kota', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Chambal Transit'],
                         ['name' => 'Ahmedabad', 'url' => url('/outstation-cab-jaipur'), 'type' => 'Western Transit'],
@@ -1139,7 +1892,7 @@
                          x-transition:leave-end="opacity-0 -translate-y-3"
                          class="max-w-3xl mx-auto">
                         
-                        <div class="text-gold text-2xl mb-4">★★★★★</div>
+                        <div class="text-primary text-2xl mb-4">★★★★★</div>
                         
                         <p class="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal font-light italic leading-relaxed mb-6">
                             &ldquo;{{ $t->quote }}&rdquo;
@@ -1240,7 +1993,7 @@
 
         <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             
-            <span class="inline-block text-[11px] uppercase tracking-[0.25em] font-bold text-gold">
+            <span class="inline-block text-[11px] uppercase tracking-[0.25em] font-bold text-primary">
                 START YOUR JOURNEY TODAY
             </span>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Vehicle Fleet & Rental Options in Jaipur | Sujata Tours')
+@section('title', 'Vehicle Fleet and Rental Options in Jaipur | Sujata Tours')
 @section('meta_description', 'Browse our full vehicle fleet for rent in Jaipur. Chauffeur-driven sedans, SUVs, 12 to 26 seater tempo travellers, and 21 to 45 seater luxury tourist buses.')
 @section('canonical_url', route('vehicles.index'))
 
@@ -8,7 +8,7 @@
     <!-- Header Banner -->
     <div class="bg-navy-900 text-white py-14 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Our Commercial Fleet</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary">Our Commercial Fleet</span>
             <h1 class="text-3xl sm:text-4xl font-black tracking-tight mt-1">
                 Browse Rental Vehicles
             </h1>
@@ -18,27 +18,27 @@
         </div>
     </div>
 
-    <!-- Filter Bar & Grid -->
+    <!-- Filter Bar and Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         <!-- Category Filter Tabs -->
         <div class="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-border">
             <div class="flex flex-wrap items-center gap-2">
                 <a href="{{ route('vehicles.index') }}" 
-                   class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ empty($selectedCategory) ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
+                    class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ empty($selectedCategory) ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
                     All Vehicles
                 </a>
                 <a href="{{ route('vehicles.cars') }}" 
-                   class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'cars' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
-                    Cars (Sedan &amp; SUV)
+                    class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'cars' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
+                    Cars (Sedan and SUV)
                 </a>
                 <a href="{{ route('vehicles.tempo-travellers') }}" 
-                   class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'tempo-travellers' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
+                    class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'tempo-travellers' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
                     Tempo Travellers (12-26 Seater)
                 </a>
                 <a href="{{ route('vehicles.buses') }}" 
-                   class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'buses' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
-                    Buses &amp; Coaches (21-45 Seater)
+                    class="px-4 py-2 rounded-lg text-xs font-bold transition-all {{ $selectedCategory === 'buses' ? 'bg-navy-900 text-white shadow-sm' : 'bg-white text-charcoal border border-border hover:bg-surface-subtle' }}">
+                    Buses and Coaches (21-45 Seater)
                 </a>
             </div>
 
