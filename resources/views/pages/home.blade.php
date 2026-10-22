@@ -267,60 +267,60 @@
     <!-- =========================================================================
          1.1 FLOATING TRUST & FLEET HIGHLIGHTS BAR (Matches Reference Design Mockup)
          ========================================================================= -->
-    <div class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 lg:-mt-12 mb-8">
-        <div class="bg-white rounded-2xl shadow-xl border border-sand-300/60 p-4 sm:p-5 lg:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-sand-200">
+    <div class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 lg:-mt-12 mb-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-sand-300/60 p-4 sm:p-5 lg:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-sand-200/80">
             
             <!-- 1. Wide Range of Vehicles -->
-            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3 first:pt-0 first:px-0">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-3.5 sm:gap-4 pt-3 sm:pt-0 lg:px-4 first:pt-0 first:lg:pl-0">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 17a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 13l1.5-4.5A2 2 0 016.4 7h11.2a2 2 0 011.9 1.5L21 13v4a1 1 0 01-1 1h-1a2 2 0 01-4 0H9a2 2 0 01-4 0H4a1 1 0 01-1-1v-4z"/>
                     </svg>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold text-charcoal leading-tight">Wide Range of Vehicles</h3>
-                    <p class="text-xs text-charcoal-muted mt-0.5">Sedans, SUVs, Tempo Travellers, Buses</p>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-charcoal leading-tight truncate sm:whitespace-normal">Wide Range of Vehicles</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5 truncate sm:whitespace-normal">Sedans, SUVs, Tempo Travellers, Buses</p>
                 </div>
             </div>
 
             <!-- 2. Verified Chauffeurs -->
-            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-3.5 sm:gap-4 pt-3 sm:pt-0 lg:px-4">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold text-charcoal leading-tight">Verified Chauffeurs</h3>
-                    <p class="text-xs text-charcoal-muted mt-0.5">Experienced & Professional Drivers</p>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-charcoal leading-tight truncate sm:whitespace-normal">Verified Chauffeurs</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5 truncate sm:whitespace-normal">Experienced & Professional Drivers</p>
                 </div>
             </div>
 
             <!-- 3. Airport Transfers -->
-            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-3.5 sm:gap-4 pt-3 sm:pt-0 lg:px-4">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                     </svg>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold text-charcoal leading-tight">Airport Transfers</h3>
-                    <p class="text-xs text-charcoal-muted mt-0.5">On-Time, Every Time</p>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-charcoal leading-tight truncate sm:whitespace-normal">Airport Transfers</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5 truncate sm:whitespace-normal">On-Time, Every Time</p>
                 </div>
             </div>
 
             <!-- 4. Rajasthan & Intercity -->
-            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-3.5 sm:gap-4 pt-3 sm:pt-0 lg:px-4 last:lg:pr-0">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold text-charcoal leading-tight">Rajasthan & Intercity</h3>
-                    <p class="text-xs text-charcoal-muted mt-0.5">Local, Outstation & Tourist Routes</p>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-charcoal leading-tight truncate sm:whitespace-normal">Rajasthan & Intercity</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5 truncate sm:whitespace-normal">Local, Outstation & Tourist Routes</p>
                 </div>
             </div>
 
