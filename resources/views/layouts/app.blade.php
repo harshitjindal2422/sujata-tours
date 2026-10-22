@@ -73,6 +73,18 @@
       }" 
       @scroll.window="scrolled = (window.pageYOffset > 40)">
 
+    <!-- Auspicious Devotional Top Banner (॥ श्री शिवाय नमस्तुभ्यं ॥) -->
+    <div class="w-full relative overflow-hidden select-none border-b border-[#7d2f37] shadow-sm" 
+         style="background: linear-gradient(90deg, #943942 0%, #a6565e 50%, #aa5960 100%);">
+        <div class="max-w-7xl mx-auto flex items-center justify-center">
+            <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
+                 alt="॥ श्री शिवाय नमस्तुभ्यं ॥" 
+                 title="॥ श्री शिवाय नमस्तुभ्यं ॥"
+                 class="w-full h-auto max-h-20 sm:max-h-28 md:max-h-36 lg:max-h-44 object-contain object-center pointer-events-none"
+                 loading="eager">
+        </div>
+    </div>
+
     <!-- Top Contact Bar (Subtle Luxury Strip) -->
     <div class="hidden md:block transition-all duration-300 {{ request()->routeIs('home') ? 'bg-charcoal-dark/95 text-sand-300 border-b border-white/10' : 'bg-charcoal-dark text-sand-300 border-b border-charcoal' }} text-xs py-2">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
