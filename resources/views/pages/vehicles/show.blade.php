@@ -54,22 +54,21 @@
             <div class="lg:col-span-7 space-y-8">
                 
                 <!-- Main Vehicle Photo -->
-                <div class="bg-white rounded-2xl border border-border overflow-hidden shadow-card">
-                        <img src="{{ $vehicle->image_url }}" 
-                             alt="{{ $vehicle->name }} in Jaipur" 
-                             class="w-full h-full object-cover"
-                             onerror="this.onerror=null;this.src='{{ asset('images/fleet/toyota-innova-crysta.jpg') }}';">
-                        
-                        <div class="absolute top-4 left-4 flex gap-2">
-                            <span class="px-3 py-1 rounded-md text-xs font-bold bg-navy-900 text-white shadow-sm">
-                                {{ $vehicle->category ? $vehicle->category->name : 'Commercial Fleet' }}
+                <div class="relative bg-white rounded-2xl border border-border overflow-hidden shadow-card aspect-[16/10] sm:aspect-[16/9]">
+                    <img src="{{ $vehicle->image_url }}" 
+                         alt="{{ $vehicle->name }} in Jaipur" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null;this.src='{{ asset('images/fleet/toyota-innova-crysta.jpg') }}';">
+                    
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="px-3 py-1 rounded-md text-xs font-bold bg-navy-900 text-white shadow-sm">
+                            {{ $vehicle->category ? $vehicle->category->name : 'Commercial Fleet' }}
+                        </span>
+                        @if($vehicle->status === 'available')
+                            <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                Ready for Dispatch
                             </span>
-                            @if($vehicle->status === 'available')
-                                <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                                    Ready for Dispatch
-                                </span>
-                            @endif
-                        </div>
+                        @endif
                     </div>
                 </div>
 

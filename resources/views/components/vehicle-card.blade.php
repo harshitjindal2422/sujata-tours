@@ -2,6 +2,7 @@
 
 <div class="bg-white rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col group">
     <!-- Vehicle Image Container -->
+    <div class="relative h-52 sm:h-56 bg-surface-muted overflow-hidden">
         <img src="{{ $vehicle->image_url }}" 
              alt="{{ $vehicle->name }} rental in Jaipur" 
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -84,8 +85,8 @@
                 <a href="{{ route('vehicles.show', $vehicle->slug) }}" class="btn-secondary text-xs px-3.5 py-2.5">
                     Specs
                 </a>
-                <a href="{{ route('home') }}#booking-section" 
-                   onclick="if(window.selectVehicleForBooking) { window.selectVehicleForBooking('{{ $vehicle->id }}', '{{ $vehicle->name }}', '{{ $vehicle->category ? $vehicle->category->name : 'Car Rental' }}'); }"
+                <a href="{{ route('vehicles.show', $vehicle->slug) }}#vehicle-booking-form" 
+                   onclick="if(window.selectVehicleForBooking && document.getElementById('quick-booking-form')) { event.preventDefault(); window.selectVehicleForBooking('{{ $vehicle->id }}', '{{ $vehicle->name }}', '{{ $vehicle->category ? $vehicle->category->name : 'Car Rental' }}'); }"
                    class="btn-primary text-xs px-4 py-2.5">
                     Book Now
                 </a>
