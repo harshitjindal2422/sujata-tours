@@ -74,13 +74,21 @@
       @scroll.window="scrolled = (window.pageYOffset > 40)">
 
     <!-- Auspicious Devotional Top Banner (॥ श्री शिवाय नमस्तुभ्यं ॥) -->
-    <div class="w-full relative overflow-hidden select-none border-b border-[#7d2f37] shadow-sm" 
-         style="background: linear-gradient(90deg, #943942 0%, #a6565e 50%, #aa5960 100%);">
-        <div class="max-w-7xl mx-auto flex items-center justify-center">
+    <div class="w-full relative overflow-hidden select-none border-b border-[#7d2f37] shadow-md bg-[#80252e]">
+        <!-- Full-Width Ambient Glowing Backdrop (Eliminates empty flat sides) -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
+            <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
+                 alt="" 
+                 class="w-full h-full object-cover blur-2xl scale-110 opacity-75">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#691c25]/90 via-transparent to-[#691c25]/90"></div>
+        </div>
+
+        <!-- Crisp, Majestic Central Artwork -->
+        <div class="relative w-full flex items-center justify-center py-0.5 sm:py-1">
             <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
                  alt="॥ श्री शिवाय नमस्तुभ्यं ॥" 
                  title="॥ श्री शिवाय नमस्तुभ्यं ॥"
-                 class="w-full h-auto max-h-20 sm:max-h-28 md:max-h-36 lg:max-h-44 object-contain object-center pointer-events-none"
+                 class="w-full h-auto max-h-[160px] sm:max-h-[210px] md:max-h-[260px] lg:max-h-[300px] xl:max-h-[330px] object-contain object-center drop-shadow-xl pointer-events-none"
                  loading="eager">
         </div>
     </div>
