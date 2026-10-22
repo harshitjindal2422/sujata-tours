@@ -73,28 +73,8 @@
       }" 
       @scroll.window="scrolled = (window.pageYOffset > 40)">
 
-    <!-- Auspicious Devotional Top Banner (॥ श्री शिवाय नमस्तुभ्यं ॥) -->
-    <div class="w-full relative overflow-hidden select-none border-b border-[#7d2f37] shadow-md bg-[#80252e]">
-        <!-- Full-Width Ambient Glowing Backdrop (Eliminates empty flat sides) -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
-            <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
-                 alt="" 
-                 class="w-full h-full object-cover blur-2xl scale-110 opacity-75">
-            <div class="absolute inset-0 bg-gradient-to-r from-[#691c25]/90 via-transparent to-[#691c25]/90"></div>
-        </div>
-
-        <!-- Crisp, Majestic Central Artwork -->
-        <div class="relative w-full flex items-center justify-center py-0.5 sm:py-1">
-            <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
-                 alt="॥ श्री शिवाय नमस्तुभ्यं ॥" 
-                 title="॥ श्री शिवाय नमस्तुभ्यं ॥"
-                 class="w-full h-auto max-h-[160px] sm:max-h-[210px] md:max-h-[260px] lg:max-h-[300px] xl:max-h-[330px] object-contain object-center drop-shadow-xl pointer-events-none"
-                 loading="eager">
-        </div>
-    </div>
-
     <!-- Top Contact Bar (Subtle Luxury Strip) -->
-    <div class="hidden md:block transition-all duration-300 {{ request()->routeIs('home') ? 'bg-charcoal-dark/95 text-sand-300 border-b border-white/10' : 'bg-charcoal-dark text-sand-300 border-b border-charcoal' }} text-xs py-2">
+    <div class="hidden md:block transition-all duration-300 {{ request()->routeIs('home') ? 'bg-[#1c1416] text-sand-300 border-b border-white/10' : 'bg-[#1c1416] text-sand-300 border-b border-charcoal' }} text-xs py-2">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-6">
                 <span class="inline-flex items-center gap-2 text-sand-200">
@@ -114,6 +94,11 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                     <span>WhatsApp Support</span>
                 </a>
+                <span class="text-sand-400/40">|</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white text-[#1c1416] font-bold text-[11px] shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Available
+                </span>
             </div>
         </div>
     </div>
@@ -234,6 +219,15 @@
             </div>
         </div>
     </header>
+
+    <!-- Auspicious Devotional Banner (॥ श्री शिवाय नमस्तुभ्यं ॥) Spanning 100% Full-Width Edge-to-Edge Directly Below Header -->
+    <div class="w-full relative overflow-hidden select-none bg-[#7d252f] border-b border-black/10">
+        <img src="{{ asset('images/banners/shree-shivay-namastubhyam-banner.png') }}" 
+             alt="॥ श्री शिवाय नमस्तुभ्यं ॥" 
+             title="॥ श्री शिवाय नमस्तुभ्यं ॥" 
+             class="w-full h-auto block object-cover max-h-[160px] sm:max-h-[220px] md:max-h-[270px] lg:max-h-[320px] xl:max-h-[360px] pointer-events-none"
+             loading="eager">
+    </div>
 
     <!-- Global Flash Notification -->
     @if(session('success'))

@@ -62,7 +62,7 @@
         <!-- Slider Images and Backdrop -->
         <div class="relative w-full h-full overflow-hidden">
 
-            <!-- SLIDE 1: Jaipur Heritage and Chauffeur Fleet -->
+            <!-- SLIDE 1: Airport Arrivals and Innova Group Travel (Matches Reference Design) -->
             <div x-show="activeSlide === 0"
                  x-transition:enter="transition-opacity ease-out duration-700"
                  x-transition:enter-start="opacity-0"
@@ -72,31 +72,31 @@
                  x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
                 
-                <img src="{{ asset('images/banners/banner-1-jaipur.jpg') }}" 
-                     alt="Sujata Tours Jaipur Fleet" 
-                     class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
+                <img src="{{ asset('images/banners/banner-innova-airport.jpg') }}" 
+                     alt="Group Travel Pure Comfort and Luxury - Sujata Tours Innova Crysta" 
+                     class="absolute inset-0 w-full h-full object-cover object-center brightness-105 contrast-105 pointer-events-none">
                 
-                <!-- Radiant semi-transparent overlay: dark on left for text readability, clear and bright on right for vehicle view -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+                <!-- Radiant semi-transparent overlay: dark on left for text readability, clear and bright on right for Innova view -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/20 sm:to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20"></div>
 
                 <div class="absolute inset-0 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-16 sm:pb-20 lg:pb-24">
                     <div class="max-w-2xl">
                         <!-- Minimal Sharp Badge -->
                         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white text-[11px] tracking-widest font-bold uppercase mb-3 shadow-sm">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>4.9/5 RATED • SUJATA TOURS JAIPUR FLEET</span>
+                            <span>AIRPORT ARRIVALS AND LUXURY COACHES</span>
                         </div>
 
                         <!-- Striking Sharp Headline -->
                         <h1 class="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
-                            Your Journey.<br>
-                            <span class="font-normal italic text-white/90">Our Finest Fleet.</span>
+                            Group Travel.<br>
+                            <span class="font-normal italic text-white/95">Pure Comfort and Luxury.</span>
                         </h1>
 
                         <!-- Minimal Readable Subtext -->
                         <p class="text-xs sm:text-sm lg:text-base text-sand-100/90 font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)] max-w-xl mb-6">
-                            Chauffeur-driven sedans, luxury tempo travellers, and tourist coaches across Rajasthan and North India.
+                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for families, corporate groups, and outstation journeys.
                         </p>
 
                         <!-- Action Buttons -->
@@ -104,12 +104,12 @@
                             <a href="#quick-booking" 
                                class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-extrabold px-7 py-3 rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg transition-all">
                                 <span>Book a Vehicle</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                             <a href="{{ route('vehicles.index') }}" 
-                               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 transition-all shadow-sm">
-                                <span>Explore Vehicles</span>
-                                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/30 transition-all shadow-sm">
+                                <span>View Fleet</span>
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
                             </a>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 3: Airport Transfers and Coaches -->
+            <!-- SLIDE 3: Jaipur Heritage and Chauffeur Fleet -->
             <div x-show="activeSlide === 2"
                  x-transition:enter="transition-opacity ease-out duration-700"
                  x-transition:enter-start="opacity-0"
@@ -179,8 +179,8 @@
                  x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
                 
-                <img src="{{ asset('images/banners/banner-3-airport.jpg') }}" 
-                     alt="Airport Pickups and Tourist Coach Buses" 
+                <img src="{{ asset('images/banners/banner-1-jaipur.jpg') }}" 
+                     alt="Sujata Tours Jaipur Fleet" 
                      class="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-105 pointer-events-none">
                 
                 <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
@@ -191,18 +191,18 @@
                         <!-- Minimal Sharp Badge -->
                         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white text-[11px] tracking-widest font-bold uppercase mb-3 shadow-sm">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>AIRPORT ARRIVALS AND LUXURY COACHES</span>
+                            <span>4.9/5 RATED • SUJATA TOURS JAIPUR FLEET</span>
                         </div>
 
                         <!-- Striking Sharp Headline -->
                         <h2 class="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
-                            Group Travel.<br>
-                            <span class="font-normal italic text-white/90">Pure Comfort and Luxury.</span>
+                            Your Journey.<br>
+                            <span class="font-normal italic text-white/90">Our Finest Fleet.</span>
                         </h2>
 
                         <!-- Minimal Readable Subtext -->
                         <p class="text-xs sm:text-sm lg:text-base text-sand-100/90 font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)] max-w-xl mb-6">
-                            Punctual airport arrivals, executive sedans, and luxury tourist coaches for events and family tours.
+                            Chauffeur-driven sedans, luxury tempo travellers, and tourist coaches across Rajasthan and North India.
                         </p>
 
                         <!-- Action Buttons -->
@@ -212,9 +212,9 @@
                                 <span>Book a Vehicle</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </a>
-                            <a href="{{ route('vehicles.buses') }}" 
+                            <a href="{{ route('vehicles.index') }}" 
                                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-wider font-extrabold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 transition-all shadow-sm">
-                                <span>View Coaches</span>
+                                <span>Explore Vehicles</span>
                                 <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
@@ -264,12 +264,75 @@
 
     </section>
 
-    <!-- ========================================================================    <!-- =========================================================================
+    <!-- =========================================================================
+         1.1 FLOATING TRUST & FLEET HIGHLIGHTS BAR (Matches Reference Design Mockup)
+         ========================================================================= -->
+    <div class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 lg:-mt-12 mb-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-sand-300/60 p-4 sm:p-5 lg:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-sand-200">
+            
+            <!-- 1. Wide Range of Vehicles -->
+            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3 first:pt-0 first:px-0">
+                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 17a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 13l1.5-4.5A2 2 0 016.4 7h11.2a2 2 0 011.9 1.5L21 13v4a1 1 0 01-1 1h-1a2 2 0 01-4 0H9a2 2 0 01-4 0H4a1 1 0 01-1-1v-4z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-charcoal leading-tight">Wide Range of Vehicles</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5">Sedans, SUVs, Tempo Travellers, Buses</p>
+                </div>
+            </div>
+
+            <!-- 2. Verified Chauffeurs -->
+            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
+                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-charcoal leading-tight">Verified Chauffeurs</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5">Experienced & Professional Drivers</p>
+                </div>
+            </div>
+
+            <!-- 3. Airport Transfers -->
+            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
+                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-charcoal leading-tight">Airport Transfers</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5">On-Time, Every Time</p>
+                </div>
+            </div>
+
+            <!-- 4. Rajasthan & Intercity -->
+            <div class="flex items-center gap-4 pt-3 sm:pt-0 sm:px-3">
+                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-charcoal leading-tight">Rajasthan & Intercity</h3>
+                    <p class="text-xs text-charcoal-muted mt-0.5">Local, Outstation & Tourist Routes</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =========================================================================
          2. INTERACTIVE LIVE FARE & ROUTE CALCULATOR (Outstation, Local & Airport)
          ========================================================================= -->
     <section id="fare-calculator" 
              data-anchor="quick-booking"
-             class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 lg:-mt-24"
+             class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-6"
              x-data="{
                  tab: 'outstation', // 'outstation', 'local', 'airport'
                  
